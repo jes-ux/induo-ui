@@ -1,4 +1,5 @@
-import type { HTMLAttributes, ReactNode } from "react";
+import { useRef, useState, type HTMLAttributes, type ReactNode, type UIEvent } from "react";
+import { Button } from "../Button/Button";
 
 export interface ProductCarouselProps extends HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -9,6 +10,9 @@ export interface ProductCarouselProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
 }
 
+const DOT_COUNT = 4;
+const dotSizes = ["8px", "8px", "8px", "4px"];
+
 export function ProductCarousel({
   title,
   seeAllLabel,
@@ -17,6 +21,16 @@ export function ProductCarousel({
   className,
   ...props
 }: ProductCarouselProps) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeDot, setActiveDot] = useState(0);
+
+  const handleScroll = (event: UIEvent<HTMLDivElement>) => {
+    const el = event.currentTarget;
+    const maxScroll = el.scrollWidth - el.clientWidth;
+    const ratio = maxScroll > 0 ? el.scrollLeft / maxScroll : 0;
+    setActiveDot(Math.round(ratio * (DOT_COUNT - 1)));
+  };
+
   return (
     <div className={["flex w-full flex-col gap-[var(--spacing-8)]", className].filter(Boolean).join(" ")} {...props}>
       <div className="flex w-full items-center justify-between">
@@ -25,23 +39,33 @@ export function ProductCarousel({
             {title}
           </span>
           {seeAllLabel && (
-            <button
-              type="button"
-              onClick={onSeeAll}
-              className="font-sans text-[18px] font-semibold leading-[24px] text-[var(--color-action-primary)]"
-            >
+            <Button variant="text" icon={null} onClick={onSeeAll}>
               {seeAllLabel}
-            </button>
+            </Button>
           )}
         </div>
         <span className="flex shrink-0 items-center gap-[8px]">
-          <span className="size-[8px] shrink-0 rounded-full bg-[var(--color-action-primary)]" />
-          <span className="size-[8px] shrink-0 rounded-full bg-[var(--color-action-secondary)]" />
-          <span className="size-[8px] shrink-0 rounded-full bg-[var(--color-action-secondary)]" />
-          <span className="size-[4px] shrink-0 rounded-full bg-[var(--color-action-secondary)]" />
+          {dotSizes.map((size, index) => (
+            <span
+              key={index}
+              className="shrink-0 rounded-full"
+              style={{
+                width: size,
+                height: size,
+                backgroundColor:
+                  index === activeDot ? "var(--color-action-primary)" : "var(--color-action-secondary)",
+              }}
+            />
+          ))}
         </span>
       </div>
-      <div className="flex w-full gap-[var(--spacing-4)] overflow-x-auto">{children}</div>
+      <div
+        ref={scrollRef}
+        onScroll={handleScroll}
+        className="flex w-full gap-[var(--spacing-4)] overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {children}
+      </div>
     </div>
   );
 }
