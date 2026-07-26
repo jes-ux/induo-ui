@@ -1,4 +1,4 @@
-import { Button, Input, Badge, ItemButton, ItemCard, Toast, CategoryCard } from "./components";
+import { Button, Input, Badge, ItemButton, ItemCard, Toast, CategoryCard, Tooltip } from "./components";
 import { PinIcon } from "./components/icons/PinIcon";
 import { PackageIcon } from "./components/icons/PackageIcon";
 import { OutdoorIcon } from "./components/icons/OutdoorIcon";
@@ -68,6 +68,18 @@ export default function App() {
       <Section title="CategoryCard">
         <CategoryCard icon={<OutdoorIcon />} label="Outdoor" />
         <CategoryCard icon={<PackageIcon />} label="Envíos y paquetería" />
+      </Section>
+
+      <Section title="Tooltip">
+        <Tooltip message="Ingresa con tu dirección de correo electrónico" onClose={() => {}}>
+          <Button variant="secondary">Hover / focus acá</Button>
+        </Tooltip>
+        <Tooltip
+          message="Ingresa con tu dirección de correo electrónico"
+          actionLabel="Necesito ayuda para continuar"
+        >
+          <Button variant="outlined">Con acción</Button>
+        </Tooltip>
       </Section>
 
       <Section title="Toast">

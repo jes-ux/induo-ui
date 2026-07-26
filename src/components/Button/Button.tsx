@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, ReactNode } from "react";
+import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from "react";
 import { ArrowRightIcon } from "../icons/ArrowRightIcon";
 
 export type ButtonVariant = "primary" | "secondary" | "outlined" | "text";
@@ -46,20 +46,16 @@ const textSizeStyles: Record<ButtonSize, string> = {
   small: "text-[16px] leading-[20px]",
 };
 
-export function Button({
-  variant = "primary",
-  size = "medium",
-  icon,
-  children,
-  className,
-  disabled,
-  ...props
-}: ButtonProps) {
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
+  { variant = "primary", size = "medium", icon, children, className, disabled, ...props },
+  ref,
+) {
   const showIcon = icon !== null;
   const iconNode = icon ?? <ArrowRightIcon className="size-[18px]" />;
 
   return (
     <button
+      ref={ref}
       className={[
         base,
         variantStyles[variant],
@@ -75,4 +71,4 @@ export function Button({
       {showIcon && iconNode}
     </button>
   );
-}
+});

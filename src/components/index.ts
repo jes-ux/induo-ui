@@ -18,3 +18,6 @@ export type { ToastProps, ToastVariant } from "./Toast/Toast";
 
 export { CategoryCard } from "./CategoryCard/CategoryCard";
 export type { CategoryCardProps } from "./CategoryCard/CategoryCard";
+
+export { Tooltip } from "./Tooltip/Tooltip";
+export type { TooltipProps } from "./Tooltip/Tooltip";

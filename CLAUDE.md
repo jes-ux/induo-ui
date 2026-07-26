@@ -32,10 +32,14 @@ React + TypeScript + Vite + Tailwind CSS v4. Sin librería de componentes de ter
 - ✅ **ItemButton** — fila ícono + label (+ subtitle opcional) + trailing (flecha por defecto). Patrón de navegación.
 - ✅ **ItemCard** — mismo patrón que ItemButton pero seleccionable (prop `selected`, borde y fondo resaltado). Pensado para grupos de opciones (método de envío, medio de pago, etc.).
 - ✅ **Toast** — variantes `default` / `success` / `warning` / `error` (bg y border del mismo color, texto blanco), ícono (32px) + mensaje + botón de acción transparente opcional. Fetcheado de Figma (node `6055:7029`); ahí también hay una variante `success` no mencionada originalmente en este archivo, se incluyó igual porque comparte estructura y colores semánticos con el resto del kit (Badge ya usa success/warning/error/action). Íconos nuevos `AlertCircleIcon` y `CheckCircleIcon` en `src/components/icons/`, recreados en el mismo estilo stroke-24px que los demás (no son el export SVG fill-based crudo de Figma).
-- ✅ **CategoryCard** — botón cuadrado (89px) ícono (40px) + label, para navegación por categorías. Fondo `action-secondary`, estados hover/pressed vía pseudo-clases. Ícono nuevo `OutdoorIcon` en `src/components/icons/`.
+- ✅ **CategoryCard** — botón fijo 100x124px, ícono (40px) + label (14px semibold, 2 líneas). Fondo `action-secondary`, estados hover/pressed vía pseudo-clases. Ícono nuevo `OutdoorIcon` en `src/components/icons/`. Dimensiones y tipografía ajustadas más de una vez en Figma después de construido — revisar contra el nodo (`6128:203`) si hay dudas de si el código sigue vigente.
+- ✅ **Tooltip** — primer componente sobre Radix (`@radix-ui/react-tooltip`). Bubble oscura (`gray-9`), ícono (24px, `InfoCircleIcon` nuevo) + mensaje (16px/20px), botón de cerrar opcional (`onClose`, `CloseIcon` nuevo) y link de acción opcional subrayado (`actionLabel`/`onAction`). Cada instancia envuelve su propio `Tooltip.Provider` (no hace falta uno global a nivel app). Fetcheado de Figma (`4067:6827` variante simple, `4067:6610` variante con acción). Requirió convertir `Button` a `forwardRef` (ver abajo) para que funcione como trigger vía `asChild`.
+
+## Convención agregada: `Button` usa `forwardRef`
+Radix (`Tooltip.Trigger`, y a futuro `Select`/`Popover`/etc.) usa `asChild` + clonado para inyectar su propio ref en el elemento trigger. Si el componente pasado como hijo no reenvía el ref con `React.forwardRef`, Radix no puede calcular la posición del contenido y React tira warning en consola. `Button` ya se convirtió; **cualquier componente que pueda usarse como trigger de un primitive de Radix debe reenviar ref de la misma forma**.
 
 ## Pendiente / backlog
-- Resto de componentes moleculares del kit: Contextual Card, Product Card, Product Carousel, Tooltip, Password Input, Verification Input, Separator, Radio Button, Check Box, Special Button, Filters Badges.
+- Resto de componentes moleculares del kit: Contextual Card, Product Card, Product Carousel, Password Input, Verification Input, Separator, Radio Button, Check Box, Special Button, Filters Badges.
 - Evaluar self-hostear Montserrat (`@fontsource/montserrat` o similar) en vez de depender de Google Fonts.
 - El archivo Figma "UI Kit Payment Web" (fileKey `2fH1HSTQNFS2AKBnu42sTY`) todavía no está conectado a la librería "Design Tokens - Induo" — quedó pendiente, no es prioridad actual.
 
