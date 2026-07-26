@@ -150,6 +150,37 @@ export default function App() {
             title="Mouse Inalámbrico Con Emojis Personalizables Logitech"
             price="190.300 pts"
           />
+          <ProductCard
+            image="https://picsum.photos/seed/msmouse1/320/320"
+            brand="Microsoft"
+            title="Mouse Microsoft Modern Mobile peach"
+            price="120.500 pts"
+            shipping="Envío Gratis"
+          />
+          <ProductCard
+            image="https://picsum.photos/seed/msmouse2/320/320"
+            brand="Microsoft"
+            title="Mouse Inalambrico Microsoft 1850 Ambidiestro Windows Mac"
+            price="60.700 pts"
+          />
+          <ProductCard
+            image="https://picsum.photos/seed/teclado/320/320"
+            badge={
+              <Badge variant="action" size="small">
+                Oferta
+              </Badge>
+            }
+            brand="Logitech"
+            title="Teclado Inalámbrico K380 Multi-Dispositivo Bluetooth"
+            price="310.900 pts"
+            shipping="Envío Gratis"
+          />
+          <ProductCard
+            image="https://picsum.photos/seed/auriculares/320/320"
+            brand="Sony"
+            title="Auriculares Inalámbricos WH-CH520 Bluetooth"
+            price="175.200 pts"
+          />
         </ProductCarousel>
       </Section>
 
