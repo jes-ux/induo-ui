@@ -41,8 +41,12 @@ Los SVG crudos exportados de Figma van en `src/icons-raw/*.svg`. El script toma 
 ## Convención agregada: `Button` usa `forwardRef`
 Radix (`Tooltip.Trigger`, y a futuro `Select`/`Popover`/etc.) usa `asChild` + clonado para inyectar su propio ref en el elemento trigger. Si el componente pasado como hijo no reenvía el ref con `React.forwardRef`, Radix no puede calcular la posición del contenido y React tira warning en consola. `Button` ya se convirtió; **cualquier componente que pueda usarse como trigger de un primitive de Radix debe reenviar ref de la misma forma**.
 
+- ✅ **ContextualCard** — bg `gray-1`, radius medium, mensaje (18px Regular, color `neutral-black` literal, `leading-22px` — no es el body-large estándar de 24px, es un override puntual de Figma) + CTA de texto opcional (`actionLabel`/`onAction`, 18px SemiBold `action-primary`). Fetcheado de Figma (`95:1229`).
+- ✅ **ProductCard** — card fija 160px de ancho, imagen 160x160 (bordeada, radius-large arriba) + bloque de info 183px alto (radius-large abajo, mismo borde `gray-4` sin duplicar el borde compartido). Props: `image`, `badge?` (ReactNode, ej. `<Badge variant="information" size="small">`), `brand`, `title` (2 líneas, `line-clamp-2`), `price`, `shipping?`. Fetcheado de Figma (`6102:231`).
+- ✅ **ProductCarousel** — header (título 18px SemiBold + `seeAllLabel` opcional en `action-primary`, dots de paginación decorativos a la derecha) + fila horizontal scrolleable de `ProductCard` (gap 4px, no 16 — ojo que es distinto al resto del kit). Los dots son estáticos (no trackean scroll real). Fetcheado de Figma (`6104:4022` header, reusa `6102:289` para las cards).
+
 ## Pendiente / backlog
-- Resto de componentes moleculares del kit: Contextual Card, Product Card, Product Carousel, Password Input, Verification Input, Separator, Radio Button, Check Box, Special Button, Filters Badges.
+- Resto de componentes moleculares del kit: Password Input, Verification Input, Separator, Radio Button, Check Box, Special Button, Filters Badges.
 - Evaluar self-hostear Montserrat (`@fontsource/montserrat` o similar) en vez de depender de Google Fonts.
 - El archivo Figma "UI Kit Payment Web" (fileKey `2fH1HSTQNFS2AKBnu42sTY`) todavía no está conectado a la librería "Design Tokens - Induo" — quedó pendiente, no es prioridad actual.
 

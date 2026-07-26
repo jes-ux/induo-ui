@@ -1,4 +1,16 @@
-import { Button, Input, Badge, ItemButton, ItemCard, Toast, CategoryCard, Tooltip } from "./components";
+import {
+  Button,
+  Input,
+  Badge,
+  ItemButton,
+  ItemCard,
+  Toast,
+  CategoryCard,
+  Tooltip,
+  ContextualCard,
+  ProductCard,
+  ProductCarousel,
+} from "./components";
 import { PackageIcon } from "./components/icons/PackageIcon";
 import { OutdoorIcon } from "./components/icons/OutdoorIcon";
 import { PinLocationIcon } from "./components/icons/PinLocationIcon";
@@ -81,6 +93,57 @@ export default function App() {
         >
           <Button variant="outlined">Con acción</Button>
         </Tooltip>
+      </Section>
+
+      <Section title="ContextualCard">
+        <div className="w-full max-w-[400px]">
+          <ContextualCard message="Vas a  pagar impuestos y servicios con factura" actionLabel="Volver" />
+        </div>
+      </Section>
+
+      <Section title="ProductCard">
+        <ProductCard
+          image="https://picsum.photos/seed/jbl/320/320"
+          badge={
+            <Badge variant="information" size="small">
+              Novedad
+            </Badge>
+          }
+          brand="JBL"
+          title="Parlante Bluetooth JBL Clip 4 Black/Orange"
+          price="499.500 pts"
+          shipping="Envío Gratis"
+        />
+      </Section>
+
+      <Section title="ProductCarousel">
+        <ProductCarousel title="Novedades" seeAllLabel="Mostrar todo">
+          <ProductCard
+            image="https://picsum.photos/seed/jbl/320/320"
+            badge={
+              <Badge variant="information" size="small">
+                Novedad
+              </Badge>
+            }
+            brand="JBL"
+            title="Parlante Bluetooth JBL Clip 4 Black/Orange"
+            price="219.500 pts"
+            shipping="Envío Gratis"
+          />
+          <ProductCard
+            image="https://picsum.photos/seed/mate/320/320"
+            brand="Stanley"
+            title="Mate Stanley Acero Inoxidable Termico 236ml Verde"
+            price="140.700 pts"
+            shipping="Envío Gratis"
+          />
+          <ProductCard
+            image="https://picsum.photos/seed/mouse/320/320"
+            brand="Logitech"
+            title="Mouse Inalámbrico Con Emojis Personalizables Logitech"
+            price="190.300 pts"
+          />
+        </ProductCarousel>
       </Section>
 
       <Section title="Toast">
