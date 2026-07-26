@@ -21,3 +21,12 @@ export type { CategoryCardProps } from "./CategoryCard/CategoryCard";
 
 export { Tooltip } from "./Tooltip/Tooltip";
 export type { TooltipProps } from "./Tooltip/Tooltip";
+
+export { ContextualCard } from "./ContextualCard/ContextualCard";
+export type { ContextualCardProps } from "./ContextualCard/ContextualCard";
+
+export { ProductCard } from "./ProductCard/ProductCard";
+export type { ProductCardProps } from "./ProductCard/ProductCard";
+
+export { ProductCarousel } from "./ProductCarousel/ProductCarousel";
+export type { ProductCarouselProps } from "./ProductCarousel/ProductCarousel";
