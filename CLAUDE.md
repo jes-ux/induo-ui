@@ -21,6 +21,8 @@ React + TypeScript + Vite + Tailwind CSS v4. Sin librería de componentes de ter
 - Cada componente exporta su tipo de Props (`export interface XProps`) y se re-exporta desde `src/components/index.ts`.
 - Los íconos son SVG propios en `src/components/icons/`, `currentColor` en el stroke para heredar color por contexto.
 - Antes de construir un componente nuevo, traer el diseño real de Figma (no inventar medidas/colores) — si tenés el MCP de Figma conectado en esta sesión de Claude Code, usalo contra el archivo "UI Kit App Points" (fileKey: `4IY8pjPHgMMxxT23IfMzzg`). Si no lo tenés conectado, pedir referencia visual antes de adivinar.
+- **Button, Input, Badge, ItemButton, ItemCard y Toast no cambian** — son correctos como están, construidos a mano.
+- **Para componentes del backlog con comportamiento no trivial (foco, teclado, ARIA, posicionamiento)** — Tooltip, Select/Dropdown, Modal, Radio Button en grupo, y cualquier otro con ese perfil — construir sobre **Radix UI primitives** (`@radix-ui/react-*`) en vez de implementar el comportamiento desde cero. Radix no trae estilos propios, solo comportamiento y accesibilidad ya resueltos; el styling sigue siendo 100% con las clases de Tailwind y los tokens de este proyecto, igual que en el resto de los componentes. No traer shadcn/ui completo ni su CLI — solo los primitives de Radix que hagan falta, instalados uno por uno.
 
 ## Estado actual — componentes construidos
 
