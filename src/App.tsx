@@ -12,6 +12,9 @@ import {
   ProductCard,
   ProductCarousel,
   PasswordInput,
+  Separator,
+  Checkbox,
+  RadioButton,
 } from "./components";
 import { PinLocationIcon } from "./components/icons/PinLocationIcon";
 import { PackagePinLocationIcon } from "./components/icons/PackagePinLocationIcon";
@@ -33,6 +36,8 @@ export default function App() {
   const [pw1, setPw1] = useState("");
   const [pw2, setPw2] = useState("Abcdef12");
   const [pw3, setPw3] = useState("abc");
+  const [checked, setChecked] = useState(true);
+  const [radioValue, setRadioValue] = useState("efectivo");
 
   return (
     <main className="mx-auto flex max-w-[900px] flex-col gap-[var(--spacing-32)] p-[var(--spacing-32)] font-sans">
@@ -210,6 +215,36 @@ export default function App() {
               { label: "1 número o más", met: false },
             ]}
           />
+        </div>
+      </Section>
+
+      <Section title="Separator">
+        <div className="w-full max-w-[400px]">
+          <Separator />
+        </div>
+      </Section>
+
+      <Section title="Checkbox">
+        <Checkbox label="Acepto los términos y condiciones" checked={checked} onChange={(e) => setChecked(e.target.checked)} />
+        <Checkbox label="Deshabilitado" disabled />
+        <Checkbox label="Deshabilitado marcado" disabled defaultChecked />
+      </Section>
+
+      <Section title="RadioButton">
+        <div className="flex flex-col gap-[var(--spacing-8)]">
+          <RadioButton
+            name="metodo-pago"
+            label="Efectivo"
+            checked={radioValue === "efectivo"}
+            onChange={() => setRadioValue("efectivo")}
+          />
+          <RadioButton
+            name="metodo-pago"
+            label="Tarjeta"
+            checked={radioValue === "tarjeta"}
+            onChange={() => setRadioValue("tarjeta")}
+          />
+          <RadioButton name="metodo-pago" label="Deshabilitado" disabled />
         </div>
       </Section>
 

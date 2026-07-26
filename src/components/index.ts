@@ -33,3 +33,12 @@ export type { ProductCarouselProps } from "./ProductCarousel/ProductCarousel";
 
 export { PasswordInput } from "./PasswordInput/PasswordInput";
 export type { PasswordInputProps, PasswordStrength, PasswordRequirement } from "./PasswordInput/PasswordInput";
+
+export { Separator } from "./Separator/Separator";
+export type { SeparatorProps } from "./Separator/Separator";
+
+export { Checkbox } from "./Checkbox/Checkbox";
+export type { CheckboxProps } from "./Checkbox/Checkbox";
+
+export { RadioButton } from "./RadioButton/RadioButton";
+export type { RadioButtonProps } from "./RadioButton/RadioButton";
