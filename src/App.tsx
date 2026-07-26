@@ -1,4 +1,4 @@
-import { Button, Input, Badge, ItemButton, ItemCard } from "./components";
+import { Button, Input, Badge, ItemButton, ItemCard, Toast } from "./components";
 import { PinIcon } from "./components/icons/PinIcon";
 import { PackageIcon } from "./components/icons/PackageIcon";
 
@@ -61,6 +61,15 @@ export default function App() {
         <div className="flex w-full max-w-[400px] flex-col gap-[var(--spacing-8)]">
           <ItemCard icon={<PackageIcon />} label="Retiro en sucursal" selected />
           <ItemCard icon={<PackageIcon />} label="Envío a domicilio" />
+        </div>
+      </Section>
+
+      <Section title="Toast">
+        <div className="flex w-full max-w-[400px] flex-col gap-[var(--spacing-16)]">
+          <Toast variant="default" message="Tu sesión expiró" actionLabel="Ingresar" />
+          <Toast variant="success" message="Dirección eliminada" actionLabel="Deshacer" />
+          <Toast variant="warning" message="Esta orden tiene una consulta abierta" actionLabel="Ir a cerrar" />
+          <Toast variant="error" message="Ocurrió un problema con tus datos" actionLabel="Aceptar" />
         </div>
       </Section>
     </main>

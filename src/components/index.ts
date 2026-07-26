@@ -12,3 +12,6 @@ export type { ItemButtonProps } from "./ItemButton/ItemButton";
 
 export { ItemCard } from "./ItemCard/ItemCard";
 export type { ItemCardProps } from "./ItemCard/ItemCard";
+
+export { Toast } from "./Toast/Toast";
+export type { ToastProps, ToastVariant } from "./Toast/Toast";
