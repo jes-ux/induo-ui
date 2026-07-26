@@ -1,0 +1,20 @@
+import type { SVGProps } from "react";
+
+export function OutdoorParkCafeTableUmbrellaIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <g id="Layer_2">
+        <g id="Rectangle">
+        </g>
+        <path id="Path" d="M20 16.6667V35" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path id="Path_2" d="M27.5 25H12.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path id="Path_3" d="M35 35V23.3333" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path id="Path_4" d="M5 23.3333V35" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path id="Path_5" d="M13.3333 16.6667C13.3333 10.2233 16.3181 5 20 5C23.6819 5 26.6667 10.2233 26.6667 16.6667" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path id="Path_6" fillRule="evenodd" clipRule="evenodd" d="M6.66628 16.6667H33.3337C33.8507 16.6621 34.337 16.4205 34.6529 16.0111C34.9687 15.6017 35.0791 15.07 34.9523 14.5688C33.6652 9.12667 27.4603 5 20 5C12.5397 5 6.33485 9.12667 5.04775 14.5688C4.92094 15.07 5.03131 15.6017 5.34713 16.0111C5.66296 16.4205 6.14926 16.6621 6.66628 16.6667V16.6667Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path id="Path_7" d="M13.3333 35V31.6667C13.3333 30.7462 12.5871 30 11.6667 30H5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path id="Path_8" d="M26.6667 35V31.6667C26.6667 30.7462 27.4129 30 28.3333 30H35" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </g>
+    </svg>
+  );
+}
