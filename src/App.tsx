@@ -15,6 +15,7 @@ import {
   Separator,
   Checkbox,
   RadioButton,
+  VerificationInput,
 } from "./components";
 import { PinLocationIcon } from "./components/icons/PinLocationIcon";
 import { PackagePinLocationIcon } from "./components/icons/PackagePinLocationIcon";
@@ -38,6 +39,8 @@ export default function App() {
   const [pw3, setPw3] = useState("abc");
   const [checked, setChecked] = useState(true);
   const [radioValue, setRadioValue] = useState("efectivo");
+  const [code1, setCode1] = useState("");
+  const [code2, setCode2] = useState("12");
 
   return (
     <main className="mx-auto flex max-w-[900px] flex-col gap-[var(--spacing-32)] p-[var(--spacing-32)] font-sans">
@@ -245,6 +248,13 @@ export default function App() {
             onChange={() => setRadioValue("tarjeta")}
           />
           <RadioButton name="metodo-pago" label="Deshabilitado" disabled />
+        </div>
+      </Section>
+
+      <Section title="VerificationInput">
+        <div className="flex flex-col gap-[var(--spacing-24)]">
+          <VerificationInput value={code1} onChange={setCode1} helperText="Ingresá el código que te enviamos" />
+          <VerificationInput value={code2} onChange={setCode2} errorMessage="El código no es válido" />
         </div>
       </Section>
 

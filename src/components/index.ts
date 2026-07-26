@@ -42,3 +42,6 @@ export type { CheckboxProps } from "./Checkbox/Checkbox";
 
 export { RadioButton } from "./RadioButton/RadioButton";
 export type { RadioButtonProps } from "./RadioButton/RadioButton";
+
+export { VerificationInput } from "./VerificationInput/VerificationInput";
+export type { VerificationInputProps } from "./VerificationInput/VerificationInput";
