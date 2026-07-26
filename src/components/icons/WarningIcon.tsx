@@ -2,11 +2,27 @@ import type { SVGProps } from "react";
 
 export function WarningIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
-        d="M12 9v4m0 4h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"
+        d="M7.99933 10.6667C7.90733 10.6667 7.83267 10.7413 7.83333 10.8333C7.83333 10.9253 7.908 11 8 11C8.092 11 8.16667 10.9253 8.16667 10.8333C8.16667 10.7413 8.092 10.6667 7.99933 10.6667"
         stroke="currentColor"
-        strokeWidth={2}
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4.94267 13.6093L2.39067 11.0573C2.14067 10.8073 2 10.468 2 10.1147V5.88533C2 5.532 2.14067 5.19267 2.39067 4.94267L4.94267 2.39067C5.19267 2.14067 5.532 2 5.88533 2H10.114C10.4673 2 10.8067 2.14067 11.0567 2.39067L13.6087 4.94267C13.8593 5.19267 14 5.532 14 5.88533V10.114C14 10.4673 13.8593 10.8067 13.6093 11.0567L10.6667 14H5.88533C5.532 14 5.19267 13.8593 4.94267 13.6093V13.6093Z"
+        stroke="currentColor"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8 8.33333V5"
+        stroke="currentColor"
+        strokeWidth={1.5}
         strokeLinecap="round"
         strokeLinejoin="round"
       />

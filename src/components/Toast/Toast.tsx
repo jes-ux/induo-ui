@@ -1,6 +1,6 @@
 import type { HTMLAttributes, ReactNode } from "react";
-import { AlertCircleIcon } from "../icons/AlertCircleIcon";
-import { CheckCircleIcon } from "../icons/CheckCircleIcon";
+import { InterfaceEssentialWarningIcon } from "../icons/InterfaceEssentialWarningIcon";
+import { ToastSuccessIconIcon } from "../icons/ToastSuccessIconIcon";
 
 export type ToastVariant = "default" | "success" | "warning" | "error";
 
@@ -23,10 +23,10 @@ const variantStyles: Record<ToastVariant, string> = {
 };
 
 const defaultIcons: Record<ToastVariant, ReactNode> = {
-  default: <AlertCircleIcon />,
-  success: <CheckCircleIcon />,
-  warning: <AlertCircleIcon />,
-  error: <AlertCircleIcon />,
+  default: <InterfaceEssentialWarningIcon />,
+  success: <ToastSuccessIconIcon />,
+  warning: <InterfaceEssentialWarningIcon />,
+  error: <InterfaceEssentialWarningIcon />,
 };
 
 export function Toast({

@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export function PaymentsFinanceDollarIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 21.3333 21.3333" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <g id="Group">
+        <g id="Group_2">
+          <path id="Path" d="M16.3156 15.1884C19.4507 12.1084 19.4507 7.16711 16.3156 4.08711C13.1804 1.00711 8.152 1.00711 5.01778 4.08711C1.88356 7.16711 1.88267 12.1084 5.01778 15.1884" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path id="Path_2" fillRule="evenodd" clipRule="evenodd" d="M3.64444 18.6667H17.8667H3.64444Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path id="Path_3" d="M10.6667 5.33333V6.44444" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path id="Path_4" d="M10.6667 14.2222V13.1111" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path id="Path_5" d="M12.8773 8C12.8196 7.13244 12.104 6.44444 11.2222 6.44444H10.0044C9.14222 6.44444 8.44444 7.14311 8.44444 8.00444C8.44444 8.72 8.93156 9.344 9.62489 9.51822L11.7076 10.0409C12.4018 10.2151 12.888 10.8391 12.888 11.5547C12.888 12.4169 12.1893 13.1147 11.328 13.1147H10.1102C9.22667 13.1147 8.51111 12.4249 8.45422 11.5556" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </g>
+        <g id="Path_6">
+        </g>
+      </g>
+    </svg>
+  );
+}

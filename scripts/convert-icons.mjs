@@ -49,7 +49,7 @@ function camelCaseAttrs(svg) {
 }
 
 function hexColorsToCurrentColor(svg) {
-  return svg.replace(/(stroke|fill)="#[0-9A-Fa-f]{3,8}"/g, '$1="currentColor"');
+  return svg.replace(/(stroke|fill)="(#[0-9A-Fa-f]{3,8}|white|black)"/gi, '$1="currentColor"');
 }
 
 function parseAttrs(attrString) {
