@@ -13,10 +13,12 @@ import {
   ProductCarousel,
   PasswordInput,
 } from "./components";
-import { PackageIcon } from "./components/icons/PackageIcon";
-import { OutdoorIcon } from "./components/icons/OutdoorIcon";
 import { PinLocationIcon } from "./components/icons/PinLocationIcon";
 import { PackagePinLocationIcon } from "./components/icons/PackagePinLocationIcon";
+import { getCategoryIcon } from "./icons/category-icons";
+
+const AireLibreIcon = getCategoryIcon("aire-libre");
+const GastronomiaIcon = getCategoryIcon("gastronomia");
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -78,15 +80,14 @@ export default function App() {
       </Section>
 
       <Section title="ItemCard">
-        <div className="flex w-full max-w-[400px] flex-col gap-[var(--spacing-8)]">
-          <ItemCard icon={<PackagePinLocationIcon />} label="Retiro en sucursal" selected />
-          <ItemCard icon={<PackagePinLocationIcon />} label="Envío a domicilio" />
+        <div className="w-full max-w-[400px]">
+          <ItemCard icon={<PackagePinLocationIcon />} label="Retiro en sucursal" />
         </div>
       </Section>
 
       <Section title="CategoryCard">
-        <CategoryCard icon={<OutdoorIcon />} label="Outdoor" />
-        <CategoryCard icon={<PackageIcon />} label="Envíos y paquetería" />
+        {AireLibreIcon && <CategoryCard icon={<AireLibreIcon />} label="Aire libre" />}
+        {GastronomiaIcon && <CategoryCard icon={<GastronomiaIcon />} label="Gastronomía" />}
       </Section>
 
       <Section title="Tooltip">

@@ -41,7 +41,12 @@ export function ItemButton({ icon, label, subtitle, trailing, className, ...prop
           )}
         </span>
       </span>
-      {trailing ?? (showDefaultTrailing && <ItemcardTrailingChevronIcon className="size-[32px] shrink-0 text-[var(--color-neutral-gray-9)]" />)}
+      {trailing ??
+        (showDefaultTrailing && (
+          <span className="flex size-[32px] shrink-0 items-center justify-center text-[var(--color-neutral-gray-9)]">
+            <ItemcardTrailingChevronIcon className="h-[12px] w-[6.5px]" />
+          </span>
+        ))}
     </button>
   );
 }

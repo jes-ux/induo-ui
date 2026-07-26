@@ -40,7 +40,11 @@ export function ItemCard({ icon, label, selected = false, trailing, className, .
           {label}
         </span>
       </span>
-      {trailing ?? <ItemcardTrailingChevronIcon className="size-[32px] shrink-0 text-[var(--color-neutral-gray-9)]" />}
+      {trailing ?? (
+        <span className="flex size-[32px] shrink-0 items-center justify-center text-[var(--color-neutral-gray-9)]">
+          <ItemcardTrailingChevronIcon className="h-[12px] w-[6.5px]" />
+        </span>
+      )}
     </button>
   );
 }
