@@ -1,4 +1,6 @@
-import { Button, Input, Badge } from "./components";
+import { Button, Input, Badge, ItemButton, ItemCard } from "./components";
+import { PinIcon } from "./components/icons/PinIcon";
+import { PackageIcon } from "./components/icons/PackageIcon";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -46,6 +48,20 @@ export default function App() {
         <Badge variant="action" size="small">
           Nuevo
         </Badge>
+      </Section>
+
+      <Section title="ItemButton">
+        <div className="flex w-full max-w-[400px] flex-col">
+          <ItemButton icon={<PinIcon />} label="Información personal" />
+          <ItemButton icon={<PinIcon />} label="Direcciones" subtitle="2 guardadas" />
+        </div>
+      </Section>
+
+      <Section title="ItemCard">
+        <div className="flex w-full max-w-[400px] flex-col gap-[var(--spacing-8)]">
+          <ItemCard icon={<PackageIcon />} label="Retiro en sucursal" selected />
+          <ItemCard icon={<PackageIcon />} label="Envío a domicilio" />
+        </div>
       </Section>
     </main>
   );
