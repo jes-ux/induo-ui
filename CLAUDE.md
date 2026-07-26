@@ -30,9 +30,10 @@ React + TypeScript + Vite + Tailwind CSS v4. Sin librería de componentes de ter
 - ✅ **ItemButton** — fila ícono + label (+ subtitle opcional) + trailing (flecha por defecto). Patrón de navegación.
 - ✅ **ItemCard** — mismo patrón que ItemButton pero seleccionable (prop `selected`, borde y fondo resaltado). Pensado para grupos de opciones (método de envío, medio de pago, etc.).
 - ✅ **Toast** — variantes `default` / `success` / `warning` / `error` (bg y border del mismo color, texto blanco), ícono (32px) + mensaje + botón de acción transparente opcional. Fetcheado de Figma (node `6055:7029`); ahí también hay una variante `success` no mencionada originalmente en este archivo, se incluyó igual porque comparte estructura y colores semánticos con el resto del kit (Badge ya usa success/warning/error/action). Íconos nuevos `AlertCircleIcon` y `CheckCircleIcon` en `src/components/icons/`, recreados en el mismo estilo stroke-24px que los demás (no son el export SVG fill-based crudo de Figma).
+- ✅ **CategoryCard** — botón cuadrado (89px) ícono (40px) + label, para navegación por categorías. Fondo `action-secondary`, estados hover/pressed vía pseudo-clases. Ícono nuevo `OutdoorIcon` en `src/components/icons/`.
 
 ## Pendiente / backlog
-- Resto de componentes moleculares del kit: Category Card, Contextual Card, Product Card, Product Carousel, Tooltip, Password Input, Verification Input, Separator, Radio Button, Check Box, Special Button, Filters Badges.
+- Resto de componentes moleculares del kit: Contextual Card, Product Card, Product Carousel, Tooltip, Password Input, Verification Input, Separator, Radio Button, Check Box, Special Button, Filters Badges.
 - Evaluar self-hostear Montserrat (`@fontsource/montserrat` o similar) en vez de depender de Google Fonts.
 - El archivo Figma "UI Kit Payment Web" (fileKey `2fH1HSTQNFS2AKBnu42sTY`) todavía no está conectado a la librería "Design Tokens - Induo" — quedó pendiente, no es prioridad actual.
 
