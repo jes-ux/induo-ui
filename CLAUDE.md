@@ -47,7 +47,7 @@ Radix (`Tooltip.Trigger`, y a futuro `Select`/`Popover`/etc.) usa `asChild` + cl
 - ✅ **ProductCarousel** — header (título 18px SemiBold + `seeAllLabel` opcional, renderizado con `<Button variant="text" icon={null}>` — el "Big Text" del kit, no un `<button>` a mano) + fila horizontal scrolleable de `ProductCard` (gap 4px, no 16 — ojo que es distinto al resto del kit; scrollbar nativo oculto vía `scrollbar-width:none` + `::-webkit-scrollbar`). Los 4 dots de paginación son reales: trackean `scrollLeft/(scrollWidth-clientWidth)` en `onScroll` y resaltan el dot más cercano (no es "un dot por card", es una barra de progreso de 4 pasos fija, igual que el mock de Figma). Fetcheado de Figma (`6104:4022` header, reusa `6102:289` para las cards).
 
 ## Pendiente / backlog
-- Resto de componentes moleculares del kit: Verification Input, Separator, Radio Button, Check Box, Special Button, Filters Badges.
+- Resto de componentes moleculares del kit: Verification Input, Separator, Radio Button, Check Box, Special Button, Filters Badges, Data Card (`8073:4612`).
 - Evaluar self-hostear Montserrat (`@fontsource/montserrat` o similar) en vez de depender de Google Fonts.
 - El archivo Figma "UI Kit Payment Web" (fileKey `2fH1HSTQNFS2AKBnu42sTY`) todavía no está conectado a la librería "Design Tokens - Induo" — quedó pendiente, no es prioridad actual.
 
