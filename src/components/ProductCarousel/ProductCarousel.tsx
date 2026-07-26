@@ -11,7 +11,13 @@ export interface ProductCarouselProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const DOT_COUNT = 4;
-const dotSizes = ["8px", "8px", "8px", "4px"];
+const LAST_DOT = DOT_COUNT - 1;
+
+function getDotSize(index: number, activeDot: number) {
+  if (activeDot === 0 && index === LAST_DOT) return "4px";
+  if (activeDot === LAST_DOT && index === 0) return "4px";
+  return "8px";
+}
 
 export function ProductCarousel({
   title,
@@ -45,18 +51,21 @@ export function ProductCarousel({
           )}
         </div>
         <span className="flex shrink-0 items-center gap-[8px]">
-          {dotSizes.map((size, index) => (
-            <span
-              key={index}
-              className="shrink-0 rounded-full"
-              style={{
-                width: size,
-                height: size,
-                backgroundColor:
-                  index === activeDot ? "var(--color-action-primary)" : "var(--color-action-secondary)",
-              }}
-            />
-          ))}
+          {Array.from({ length: DOT_COUNT }, (_, index) => {
+            const size = getDotSize(index, activeDot);
+            return (
+              <span
+                key={index}
+                className="shrink-0 rounded-full transition-all"
+                style={{
+                  width: size,
+                  height: size,
+                  backgroundColor:
+                    index === activeDot ? "var(--color-action-primary)" : "var(--color-action-secondary)",
+                }}
+              />
+            );
+          })}
         </span>
       </div>
       <div
