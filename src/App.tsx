@@ -16,6 +16,9 @@ import {
   Checkbox,
   RadioButton,
   VerificationInput,
+  SpecialButton,
+  FilterBadge,
+  DataCard,
 } from "./components";
 import { PinLocationIcon } from "./components/icons/PinLocationIcon";
 import { PackagePinLocationIcon } from "./components/icons/PackagePinLocationIcon";
@@ -41,6 +44,7 @@ export default function App() {
   const [radioValue, setRadioValue] = useState("efectivo");
   const [code1, setCode1] = useState("");
   const [code2, setCode2] = useState("12");
+  const [filters, setFilters] = useState(["Stanley", "Envío gratis", "JBL"]);
 
   return (
     <main className="mx-auto flex max-w-[900px] flex-col gap-[var(--spacing-32)] p-[var(--spacing-32)] font-sans">
@@ -256,6 +260,23 @@ export default function App() {
           <VerificationInput value={code1} onChange={setCode1} helperText="Ingresá el código que te enviamos" />
           <VerificationInput value={code2} onChange={setCode2} errorMessage="El código no es válido" />
         </div>
+      </Section>
+
+      <Section title="SpecialButton">
+        <div className="w-full max-w-[400px]">
+          {AireLibreIcon && <SpecialButton icon={<AireLibreIcon />} label="Aire libre y recreación" />}
+        </div>
+      </Section>
+
+      <Section title="FilterBadge">
+        {filters.map((filter) => (
+          <FilterBadge key={filter} label={filter} onRemove={() => setFilters((f) => f.filter((x) => x !== filter))} />
+        ))}
+        <FilterBadge label="Sin acción de cerrar" />
+      </Section>
+
+      <Section title="DataCard">
+        <DataCard label="Nombre y apellido" value="Juan Carlos Domínguez" onEdit={() => {}} />
       </Section>
 
       <Section title="Toast">
