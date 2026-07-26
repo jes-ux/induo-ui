@@ -1,7 +1,8 @@
 import { Button, Input, Badge, ItemButton, ItemCard, Toast, CategoryCard, Tooltip } from "./components";
-import { PinIcon } from "./components/icons/PinIcon";
 import { PackageIcon } from "./components/icons/PackageIcon";
 import { OutdoorIcon } from "./components/icons/OutdoorIcon";
+import { PinLocationIcon } from "./components/icons/PinLocationIcon";
+import { PackagePinLocationIcon } from "./components/icons/PackagePinLocationIcon";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -53,15 +54,15 @@ export default function App() {
 
       <Section title="ItemButton">
         <div className="flex w-full max-w-[400px] flex-col">
-          <ItemButton icon={<PinIcon />} label="Información personal" />
-          <ItemButton icon={<PinIcon />} label="Direcciones" subtitle="2 guardadas" />
+          <ItemButton icon={<PinLocationIcon />} label="Información personal" />
+          <ItemButton icon={<PinLocationIcon />} label="Direcciones" subtitle="2 guardadas" />
         </div>
       </Section>
 
       <Section title="ItemCard">
         <div className="flex w-full max-w-[400px] flex-col gap-[var(--spacing-8)]">
-          <ItemCard icon={<PackageIcon />} label="Retiro en sucursal" selected />
-          <ItemCard icon={<PackageIcon />} label="Envío a domicilio" />
+          <ItemCard icon={<PackagePinLocationIcon />} label="Retiro en sucursal" selected />
+          <ItemCard icon={<PackagePinLocationIcon />} label="Envío a domicilio" />
         </div>
       </Section>
 
