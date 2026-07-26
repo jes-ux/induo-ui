@@ -22,7 +22,7 @@ export function CategoryCard({ icon, label, className, ...props }: CategoryCardP
       <span className="flex size-[40px] shrink-0 items-center justify-center text-[var(--color-action-primary)] [&>svg]:size-[40px]">
         {icon}
       </span>
-      <span className="w-full [word-break:break-word] text-center font-sans text-[14px] font-semibold leading-[18px] text-[var(--color-action-primary)]">
+      <span className="w-full [word-break:break-word] text-center font-sans text-[12px] font-semibold leading-[18px] text-[var(--color-action-primary)]">
         {label}
       </span>
     </button>
