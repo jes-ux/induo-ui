@@ -1,6 +1,7 @@
-import { Button, Input, Badge, ItemButton, ItemCard, Toast } from "./components";
+import { Button, Input, Badge, ItemButton, ItemCard, Toast, CategoryCard } from "./components";
 import { PinIcon } from "./components/icons/PinIcon";
 import { PackageIcon } from "./components/icons/PackageIcon";
+import { OutdoorIcon } from "./components/icons/OutdoorIcon";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -62,6 +63,11 @@ export default function App() {
           <ItemCard icon={<PackageIcon />} label="Retiro en sucursal" selected />
           <ItemCard icon={<PackageIcon />} label="Envío a domicilio" />
         </div>
+      </Section>
+
+      <Section title="CategoryCard">
+        <CategoryCard icon={<OutdoorIcon />} label="Outdoor" />
+        <CategoryCard icon={<PackageIcon />} label="Envíos y paquetería" />
       </Section>
 
       <Section title="Toast">

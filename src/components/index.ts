@@ -15,3 +15,6 @@ export type { ItemCardProps } from "./ItemCard/ItemCard";
 
 export { Toast } from "./Toast/Toast";
 export type { ToastProps, ToastVariant } from "./Toast/Toast";
+
+export { CategoryCard } from "./CategoryCard/CategoryCard";
+export type { CategoryCardProps } from "./CategoryCard/CategoryCard";
