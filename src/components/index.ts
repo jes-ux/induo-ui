@@ -30,3 +30,6 @@ export type { ProductCardProps } from "./ProductCard/ProductCard";
 
 export { ProductCarousel } from "./ProductCarousel/ProductCarousel";
 export type { ProductCarouselProps } from "./ProductCarousel/ProductCarousel";
+
+export { PasswordInput } from "./PasswordInput/PasswordInput";
+export type { PasswordInputProps, PasswordStrength, PasswordRequirement } from "./PasswordInput/PasswordInput";

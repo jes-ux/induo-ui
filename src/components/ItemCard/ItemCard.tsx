@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
-import { ArrowRightIcon } from "../icons/ArrowRightIcon";
+import { ItemcardTrailingChevronIcon } from "../icons/ItemcardTrailingChevronIcon";
 
 export interface ItemCardProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon: ReactNode;
@@ -15,7 +15,7 @@ export function ItemCard({ icon, label, selected = false, trailing, className, .
     <button
       aria-pressed={selected}
       className={[
-        "flex w-full items-center justify-between gap-[var(--spacing-4)]",
+        "flex h-[var(--height-68)] w-full items-center justify-between gap-[var(--spacing-4)]",
         "rounded-[var(--radius-small)] border p-[var(--spacing-4)] text-left transition-colors",
         selected
           ? "border-[var(--color-action-primary)] bg-[var(--color-action-secondary-hover)]"
@@ -40,7 +40,7 @@ export function ItemCard({ icon, label, selected = false, trailing, className, .
           {label}
         </span>
       </span>
-      {trailing ?? <ArrowRightIcon className="size-[32px] shrink-0 text-[var(--color-neutral-gray-9)]" />}
+      {trailing ?? <ItemcardTrailingChevronIcon className="size-[32px] shrink-0 text-[var(--color-neutral-gray-9)]" />}
     </button>
   );
 }

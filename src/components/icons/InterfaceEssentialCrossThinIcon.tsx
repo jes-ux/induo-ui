@@ -1,0 +1,12 @@
+import type { SVGProps } from "react";
+
+export function InterfaceEssentialCrossThinIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 10.65 10.2777" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <g id="Group 2108">
+        <path id="Path (Stroke)" fillRule="evenodd" clipRule="evenodd" d="M0.125671 0.138055C0.297953 -0.0410677 0.582824 -0.0466123 0.761946 0.12567L10.5119 9.50335C10.6911 9.67563 10.6966 9.9605 10.5243 10.1396C10.352 10.3187 10.0672 10.3243 9.88806 10.152L0.138056 0.774331C-0.0410669 0.602048 -0.0466119 0.317178 0.125671 0.138055Z" fill="currentColor"/>
+        <path id="Path (Stroke)_2" fillRule="evenodd" clipRule="evenodd" d="M10.5243 0.138055C10.352 -0.0410677 10.0672 -0.0466123 9.88806 0.12567L0.138056 9.50335C-0.0410672 9.67563 -0.0466119 9.9605 0.12567 10.1396C0.297953 10.3187 0.582823 10.3243 0.761946 10.152L10.5119 0.774331C10.6911 0.602048 10.6966 0.317178 10.5243 0.138055Z" fill="currentColor"/>
+      </g>
+    </svg>
+  );
+}

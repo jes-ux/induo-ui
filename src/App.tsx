@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Button,
   Input,
@@ -10,6 +11,7 @@ import {
   ContextualCard,
   ProductCard,
   ProductCarousel,
+  PasswordInput,
 } from "./components";
 import { PackageIcon } from "./components/icons/PackageIcon";
 import { OutdoorIcon } from "./components/icons/OutdoorIcon";
@@ -26,6 +28,10 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 }
 
 export default function App() {
+  const [pw1, setPw1] = useState("");
+  const [pw2, setPw2] = useState("Abcdef12");
+  const [pw3, setPw3] = useState("abc");
+
   return (
     <main className="mx-auto flex max-w-[900px] flex-col gap-[var(--spacing-32)] p-[var(--spacing-32)] font-sans">
       <h1 className="text-[32px] leading-[40px] font-semibold text-[var(--color-neutral-gray-9)]">
@@ -144,6 +150,35 @@ export default function App() {
             price="190.300 pts"
           />
         </ProductCarousel>
+      </Section>
+
+      <Section title="PasswordInput">
+        <div className="flex w-full max-w-[312px] flex-col gap-[var(--spacing-24)]">
+          <PasswordInput value={pw1} onChange={(e) => setPw1(e.target.value)} placeholder="Contraseña" />
+          <PasswordInput
+            value={pw2}
+            onChange={(e) => setPw2(e.target.value)}
+            strength="strong"
+            requirements={[
+              { label: "8 caracteres o más", met: true },
+              { label: "1 letra mayúscula o más", met: true },
+              { label: "1 símbolo o más (ej: ? + !)", met: true },
+              { label: "1 número o más", met: true },
+            ]}
+          />
+          <PasswordInput
+            value={pw3}
+            onChange={(e) => setPw3(e.target.value)}
+            strength="weak"
+            errorMessage="La contraseña no coincide"
+            requirements={[
+              { label: "8 caracteres o más", met: false },
+              { label: "1 letra mayúscula o más", met: true },
+              { label: "1 símbolo o más (ej: ? + !)", met: true },
+              { label: "1 número o más", met: false },
+            ]}
+          />
+        </div>
       </Section>
 
       <Section title="Toast">

@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
-import { ArrowRightIcon } from "../icons/ArrowRightIcon";
+import { ItemcardTrailingChevronIcon } from "../icons/ItemcardTrailingChevronIcon";
 
 export interface ItemButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Ícono dentro del contenedor gris redondeado (24px sugerido; el contenedor es fijo 32x32). */
@@ -41,7 +41,7 @@ export function ItemButton({ icon, label, subtitle, trailing, className, ...prop
           )}
         </span>
       </span>
-      {trailing ?? (showDefaultTrailing && <ArrowRightIcon className="size-[32px] shrink-0 text-[var(--color-neutral-gray-9)]" />)}
+      {trailing ?? (showDefaultTrailing && <ItemcardTrailingChevronIcon className="size-[32px] shrink-0 text-[var(--color-neutral-gray-9)]" />)}
     </button>
   );
 }
