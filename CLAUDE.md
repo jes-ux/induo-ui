@@ -23,6 +23,19 @@ El usuario ajustó la librería de tokens en Figma. Se refetcheó contra el nodo
 - **Tipografía: `Montserrat` → `Open Sans`** en los 10 text styles, confirmado por el usuario. **Inconsistencia encontrada en el propio archivo de Figma:** el text style "Body/Small Semibold" resuelve a `Open Sans` en unos nodos (`6128:249` CategoryCard) pero todavía a `Montserrat` en otros (`6055:7029` Toast, `8073:4712` DataCard) — parecen frames que no se resuscribieron al estilo actualizado. Se tomó `Open Sans` como valor correcto en todo el kit (coincide con la confirmación del usuario y con la mayoría de las muestras), pero si en algún componente el texto semibold pequeño se ve con la fuente vieja, es este bug de Figma, no un error de nuestro lado.
 - Verificado: `--color-error-primary`, `--color-warning-primary`, `--color-success-primary`, `--color-information-primary` y toda la escala de grises/neutros **no cambiaron**.
 
+### Log — segundo ajuste de `action-*` (2026-07-27, sync posterior)
+
+Al correr el sync de nuevo (mismo día), Paso 1 encontró que **toda la familia `action-*` había cambiado otra vez** en Figma desde la pasada anterior — confirmado en 4 nodos distintos (`18:149`/`18:221`/`18:225` Button, `8089:14648` PasswordInput, `6128:249` CategoryCard) vía `get_variable_defs`, sin necesidad de preguntarle al usuario esta vez porque ya está establecido que la fuente de verdad es Figma y el propio `SYNC.md` autoriza aplicar diferencias reales sin confirmación previa:
+
+- **`--color-action-primary`: `#2E2BEF` → `#932BEF`** (pasó de azul/indigo a púrpura/violeta — no es el mismo púrpura original `#8E49CA` de antes del primer retheme, es un tono nuevo).
+- **`--color-action-primary-hover`: `#3F3CEE` → `#993BED`**.
+- **`--color-action-primary-pressed`: `#221FE4` → `#8520DE`**.
+- **`--color-action-secondary`: `#EAEAFF` → `#E8DFF0`**.
+- **`--color-action-secondary-hover`: `#ECECFF` → `#EFE9F4`**.
+- **`--color-action-secondary-pressed`: `#E3E3FD` → `#E1D5EC`**.
+- Verificado que **no cambió nada más** en esta pasada: `error-primary`/`error-secondary`, `success-primary`/`success-secondary`, `warning-primary`, escala de grises, todos estables en los valores del retheme anterior. `--color-warning-secondary` sigue sin poder confirmarse.
+- Verificado en vivo en browser: `backgroundColor` del Button primary → `rgb(147, 43, 239)` = `#932BEF`.
+
 ## Stack
 
 React + TypeScript + Vite + Tailwind CSS v4. Sin librería de componentes de terceros (no shadcn, no MUI). Cada componente es un `.tsx` propio en `src/components/<Nombre>/<Nombre>.tsx`, exportado desde `src/components/index.ts`.
