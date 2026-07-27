@@ -46,6 +46,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(fu
   const generatedId = useId();
   const inputId = id ?? generatedId;
   const hasError = Boolean(errorMessage);
+  const hasValue = Boolean(props.value);
 
   return (
     <div className="flex w-full flex-col gap-[var(--spacing-8)]">
@@ -54,7 +55,13 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(fu
           className={[
             "flex h-[52px] w-full items-center justify-between gap-[var(--spacing-16)]",
             "rounded-[var(--radius-medium)] bg-[var(--color-neutral-white)] px-[var(--spacing-16)]",
-            hasError ? "border-2 border-[var(--color-error-primary)]" : "border border-[var(--color-neutral-gray-5)]",
+            hasError
+              ? "border-2 border-[var(--color-error-primary)]"
+              : [
+                  hasValue ? "border border-[var(--color-neutral-gray-5)]" : "border border-[var(--color-neutral-gray-4)]",
+                  "hover:border-[var(--color-neutral-gray-5)]",
+                  "focus-within:border-2 focus-within:border-[var(--color-action-primary)]",
+                ].join(" "),
           ].join(" ")}
         >
           <input
@@ -78,9 +85,9 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(fu
             className="flex size-[24px] shrink-0 items-center justify-center text-[var(--color-neutral-gray-9)]"
           >
             {visible ? (
-              <InterfaceEssentialEyeHideIcon className="size-[24px]" />
-            ) : (
               <InterfaceEssentialEyeShowIcon className="h-[19px] w-[24px]" />
+            ) : (
+              <InterfaceEssentialEyeHideIcon className="size-[24px]" />
             )}
           </button>
         </div>
