@@ -35,7 +35,7 @@ const GastronomiaIcon = getCategoryIcon("gastronomia");
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="flex flex-col gap-[var(--spacing-16)]">
-      <h2 className="text-[24px] leading-[28px] font-semibold text-[var(--color-neutral-gray-9)]">{title}</h2>
+      <h2 className="text-heading-small font-semibold text-[var(--color-neutral-gray-9)]">{title}</h2>
       <div className="flex flex-wrap items-center gap-[var(--spacing-16)]">{children}</div>
     </section>
   );
@@ -53,7 +53,7 @@ export default function App() {
 
   return (
     <main className="mx-auto flex max-w-[900px] flex-col gap-[var(--spacing-32)] p-[var(--spacing-32)] font-sans">
-      <h1 className="text-[32px] leading-[40px] font-semibold text-[var(--color-neutral-gray-9)]">
+      <h1 className="text-heading-medium font-semibold text-[var(--color-neutral-gray-9)]">
         Induo UI — vista previa
       </h1>
 

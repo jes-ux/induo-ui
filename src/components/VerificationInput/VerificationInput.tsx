@@ -83,7 +83,7 @@ export function VerificationInput({
             onPaste={handlePaste}
             aria-invalid={hasError}
             className={[
-              "h-[58px] w-[48px] rounded-[var(--radius-medium)] bg-[var(--color-neutral-white)] text-center font-sans text-[18px] leading-[24px] outline-none transition-colors",
+              "h-[58px] w-[48px] rounded-[var(--radius-medium)] bg-[var(--color-neutral-white)] text-center font-sans text-body-large font-normal outline-none transition-colors",
               hasError
                 ? "border-2 border-[var(--color-error-primary)] text-[var(--color-error-primary)]"
                 : digit
@@ -94,12 +94,12 @@ export function VerificationInput({
         ))}
       </div>
       {hasError ? (
-        <div className="flex items-center gap-[var(--spacing-4)] font-sans text-[14px] leading-[18px] text-[var(--color-error-primary)]">
+        <div className="flex items-center gap-[var(--spacing-4)] font-sans text-body-small font-normal text-[var(--color-error-primary)]">
           <WarningIcon className="size-[16px]" />
           <span>{errorMessage}</span>
         </div>
       ) : helperText ? (
-        <p className="font-sans text-[14px] leading-[18px] text-[var(--color-neutral-gray-6)]">{helperText}</p>
+        <p className="font-sans text-body-small font-normal text-[var(--color-neutral-gray-6)]">{helperText}</p>
       ) : null}
     </div>
   );

@@ -26,7 +26,7 @@ export function Input({ helperText, errorMessage, className, id, ...props }: Inp
         id={inputId}
         className={[
           "h-[58px] w-full rounded-[var(--radius-medium)] bg-[var(--color-neutral-white)]",
-          "px-[var(--spacing-16)] font-sans text-[18px] leading-[24px]",
+          "px-[var(--spacing-16)] font-sans text-body-large font-normal",
           "text-[var(--color-neutral-gray-9)] placeholder:text-[var(--color-neutral-gray-5)]",
           "outline-none transition-colors",
           hasError
@@ -47,13 +47,13 @@ export function Input({ helperText, errorMessage, className, id, ...props }: Inp
       {hasError ? (
         <div
           id={`${inputId}-desc`}
-          className="flex items-center gap-[var(--spacing-4)] text-[14px] leading-[18px] text-[var(--color-error-primary)]"
+          className="flex items-center gap-[var(--spacing-4)] font-sans text-body-small font-normal text-[var(--color-error-primary)]"
         >
           <WarningIcon className="size-[16px]" />
           <span>{errorMessage}</span>
         </div>
       ) : helperText ? (
-        <p id={`${inputId}-desc`} className="text-[14px] leading-[18px] text-[var(--color-neutral-gray-6)]">
+        <p id={`${inputId}-desc`} className="font-sans text-body-small font-normal text-[var(--color-neutral-gray-6)]">
           {helperText}
         </p>
       ) : null}

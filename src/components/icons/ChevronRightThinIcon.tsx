@@ -1,6 +1,6 @@
 import type { SVGProps } from "react";
 
-export function ItemcardTrailingChevronIcon(props: SVGProps<SVGSVGElement>) {
+export function ChevronRightThinIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 6.53333 11.8667" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <g id="Group">

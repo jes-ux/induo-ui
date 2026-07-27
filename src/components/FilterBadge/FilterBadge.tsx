@@ -13,7 +13,7 @@ export function FilterBadge({ label, onRemove, className, ...props }: FilterBadg
       className={[
         "inline-flex h-[28px] w-fit items-center gap-[7px] rounded-[var(--radius-small)]",
         "bg-[var(--color-action-secondary)] px-[var(--spacing-8)] py-[var(--spacing-4)]",
-        "whitespace-nowrap font-sans text-[16px] leading-[20px] text-[var(--color-action-primary)]",
+        "whitespace-nowrap font-sans text-body-medium font-normal text-[var(--color-action-primary)]",
         className,
       ]
         .filter(Boolean)

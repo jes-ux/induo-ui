@@ -1,6 +1,6 @@
 import type { SVGProps } from "react";
 
-export function ToastSuccessIconIcon(props: SVGProps<SVGSVGElement>) {
+export function ToastSuccessIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 25.2 25.2" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <g id="Group">

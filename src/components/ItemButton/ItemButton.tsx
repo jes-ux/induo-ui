@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
-import { ItemcardTrailingChevronIcon } from "../icons/ItemcardTrailingChevronIcon";
+import { ChevronRightThinIcon } from "../icons/ChevronRightThinIcon";
 
 export interface ItemButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Ícono dentro del contenedor gris redondeado (24px sugerido; el contenedor es fijo 32x32). */
@@ -31,11 +31,11 @@ export function ItemButton({ icon, label, subtitle, trailing, className, ...prop
           {icon}
         </span>
         <span className="flex flex-col items-start justify-center gap-[var(--spacing-4)] min-w-0">
-          <span className="truncate font-sans text-[18px] leading-[24px] text-[var(--color-neutral-gray-9)]">
+          <span className="truncate font-sans text-body-large font-normal text-[var(--color-neutral-gray-9)]">
             {label}
           </span>
           {subtitle && (
-            <span className="truncate font-sans text-[14px] leading-[18px] text-[var(--color-neutral-gray-6)]">
+            <span className="truncate font-sans text-body-small font-normal text-[var(--color-neutral-gray-6)]">
               {subtitle}
             </span>
           )}
@@ -44,7 +44,7 @@ export function ItemButton({ icon, label, subtitle, trailing, className, ...prop
       {trailing ??
         (showDefaultTrailing && (
           <span className="flex size-[32px] shrink-0 items-center justify-center text-[var(--color-action-primary)]">
-            <ItemcardTrailingChevronIcon className="h-[12px] w-[6.5px]" />
+            <ChevronRightThinIcon className="h-[12px] w-[6.5px]" />
           </span>
         ))}
     </button>

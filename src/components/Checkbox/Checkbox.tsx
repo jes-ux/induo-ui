@@ -42,7 +42,7 @@ export function Checkbox({ label, className, id, disabled, ...props }: CheckboxP
         <CheckboxCheckIcon className="pointer-events-none absolute inset-0 m-auto hidden size-[11px] text-[var(--color-neutral-white)] peer-checked:block peer-disabled:text-[var(--color-neutral-gray-4)]" />
       </span>
       {label && (
-        <span className="font-sans text-[16px] leading-[20px] text-[var(--color-neutral-gray-9)]">{label}</span>
+        <span className="font-sans text-body-medium font-normal text-[var(--color-neutral-gray-9)]">{label}</span>
       )}
     </label>
   );

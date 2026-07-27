@@ -1,6 +1,6 @@
 import type { HTMLAttributes, ReactNode } from "react";
 import { InterfaceEssentialWarningIcon } from "../icons/InterfaceEssentialWarningIcon";
-import { ToastSuccessIconIcon } from "../icons/ToastSuccessIconIcon";
+import { ToastSuccessIcon } from "../icons/ToastSuccessIcon";
 
 export type ToastVariant = "default" | "success" | "warning" | "error";
 
@@ -24,7 +24,7 @@ const variantStyles: Record<ToastVariant, string> = {
 
 const defaultIcons: Record<ToastVariant, ReactNode> = {
   default: <InterfaceEssentialWarningIcon />,
-  success: <ToastSuccessIconIcon />,
+  success: <ToastSuccessIcon />,
   warning: <InterfaceEssentialWarningIcon />,
   error: <InterfaceEssentialWarningIcon />,
 };
@@ -59,13 +59,13 @@ export function Toast({
         {showIcon && (
           <span className="flex size-[32px] shrink-0 items-center justify-center [&>svg]:size-[20px]">{iconNode}</span>
         )}
-        <span className="min-w-0 font-sans text-[16px] leading-[20px] font-normal">{message}</span>
+        <span className="min-w-0 font-sans text-body-medium font-normal">{message}</span>
       </span>
       {actionLabel && (
         <button
           type="button"
           onClick={onAction}
-          className="shrink-0 rounded-[var(--radius-medium)] px-[var(--spacing-16)] py-[var(--spacing-8)] font-sans text-[16px] leading-[20px] font-semibold text-[var(--color-neutral-white)] transition-colors hover:bg-white/10 active:bg-white/20"
+          className="shrink-0 rounded-[var(--radius-medium)] px-[var(--spacing-16)] py-[var(--spacing-8)] font-sans text-body-medium-semibold font-semibold text-[var(--color-neutral-white)] transition-colors hover:bg-white/10 active:bg-white/20"
         >
           {actionLabel}
         </button>

@@ -19,14 +19,15 @@ export function ContextualCard({ message, actionLabel, onAction, className, ...p
         .join(" ")}
       {...props}
     >
-      <p className="flex-1 font-sans text-[18px] font-normal leading-[22px] text-[var(--color-neutral-black)]">
+      {/* Figma usa 18px/22px acá, no el par 18/24 de --text-body-large */}
+      <p className="flex-1 font-sans text-[length:var(--text-body-large)] font-normal leading-[22px] text-[var(--color-neutral-black)]">
         {message}
       </p>
       {actionLabel && (
         <button
           type="button"
           onClick={onAction}
-          className="shrink-0 font-sans text-[18px] font-semibold leading-[24px] text-[var(--color-action-primary)]"
+          className="shrink-0 font-sans text-body-large-semibold font-semibold text-[var(--color-action-primary)]"
         >
           {actionLabel}
         </button>

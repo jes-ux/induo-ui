@@ -61,7 +61,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(fu
             id={inputId}
             type={visible ? "text" : "password"}
             className={[
-              "min-w-0 flex-1 bg-transparent font-sans text-[14px] leading-[18px] outline-none",
+              "min-w-0 flex-1 bg-transparent font-sans text-body-small font-normal outline-none",
               hasError ? "text-[var(--color-error-primary)]" : "text-[var(--color-neutral-black)]",
               className,
             ]
@@ -85,7 +85,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(fu
           </button>
         </div>
         {hasError && (
-          <div className="flex items-center gap-[var(--spacing-8)] font-sans text-[14px] leading-[18px] text-[var(--color-error-primary)]">
+          <div className="flex items-center gap-[var(--spacing-8)] font-sans text-body-small font-normal text-[var(--color-error-primary)]">
             <WarningIcon className="size-[16px]" />
             <span>{errorMessage}</span>
           </div>
@@ -95,7 +95,8 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(fu
       {requirements && requirements.length > 0 && (
         <div className="flex w-full flex-col gap-[var(--spacing-12)] rounded-[var(--radius-medium)] bg-[var(--color-neutral-gray-1)] p-[var(--spacing-16)]">
           <div className="flex w-full flex-col gap-[var(--spacing-12)]">
-            <p className="font-sans text-[16px] font-semibold leading-[18px] text-[var(--color-neutral-black)]">
+            {/* Figma usa 16px/18px acá, no el par 16/20 de --text-body-medium-semibold */}
+            <p className="font-sans text-[length:var(--text-body-medium-semibold)] font-semibold leading-[18px] text-[var(--color-neutral-black)]">
               {requirementsTitle}
             </p>
             <div className="h-[11px] w-full overflow-hidden rounded-full bg-[var(--color-neutral-gray-2)]">
@@ -107,7 +108,8 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(fu
               )}
             </div>
           </div>
-          <p className="font-sans text-[14px] leading-[20px] text-[var(--color-neutral-black)]">
+          {/* Figma usa 14px/20px acá, no el par 14/18 de --text-body-small */}
+          <p className="font-sans text-[length:var(--text-body-small)] leading-[20px] text-[var(--color-neutral-black)]">
             {requirementsHelperText}
           </p>
           <ul className="flex w-full flex-col gap-[var(--spacing-4)]">
@@ -125,7 +127,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(fu
                     <InterfaceEssentialCrossThinIcon className="size-[11px]" />
                   )}
                 </span>
-                <span className="font-sans text-[14px] leading-[20px] text-[var(--color-neutral-black)]">
+                <span className="font-sans text-[length:var(--text-body-small)] leading-[20px] text-[var(--color-neutral-black)]">
                   {req.label}
                 </span>
               </li>

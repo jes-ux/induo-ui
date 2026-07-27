@@ -41,7 +41,7 @@ export function ProductCarousel({
     <div className={["flex w-full flex-col gap-[var(--spacing-8)]", className].filter(Boolean).join(" ")} {...props}>
       <div className="flex w-full items-center justify-between">
         <div className="flex items-center gap-[var(--spacing-8)]">
-          <span className="font-sans text-[18px] font-semibold leading-[24px] text-[var(--color-neutral-gray-9)]">
+          <span className="font-sans text-body-large-semibold font-semibold text-[var(--color-neutral-gray-9)]">
             {title}
           </span>
           {seeAllLabel && (

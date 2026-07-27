@@ -46,7 +46,7 @@ export function Tooltip({
                 <span className="flex size-[24px] shrink-0 items-center justify-center text-[var(--color-neutral-white)]">
                   {icon ?? <InfoCircleIcon className="size-[24px]" />}
                 </span>
-                <p className="flex-1 font-sans text-[16px] leading-[20px] text-[var(--color-neutral-white)]">
+                <p className="flex-1 font-sans text-body-medium font-normal text-[var(--color-neutral-white)]">
                   {message}
                 </p>
               </div>
@@ -65,7 +65,7 @@ export function Tooltip({
               <button
                 type="button"
                 onClick={onAction}
-                className="text-left font-sans text-[16px] leading-[24px] text-[var(--color-neutral-white)] underline"
+                className="text-left font-sans text-body-medium font-normal text-[var(--color-neutral-white)] underline"
               >
                 {actionLabel}
               </button>

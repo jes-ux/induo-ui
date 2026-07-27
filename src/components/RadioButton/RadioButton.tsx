@@ -48,7 +48,7 @@ export function RadioButton({ label, className, id, disabled, ...props }: RadioB
         />
       </span>
       {label && (
-        <span className="font-sans text-[16px] leading-[20px] text-[var(--color-neutral-gray-9)]">{label}</span>
+        <span className="font-sans text-body-medium font-normal text-[var(--color-neutral-gray-9)]">{label}</span>
       )}
     </label>
   );

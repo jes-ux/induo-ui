@@ -22,14 +22,17 @@ export function DataCard({ label, value, editLabel = "Editar", onEdit, className
       {...props}
     >
       <div className="flex flex-col items-start gap-[var(--spacing-1)]">
-        <span className="font-sans text-[14px] leading-[24px] text-[var(--color-neutral-gray-9)]">{label}</span>
-        <span className="font-sans text-[18px] leading-[24px] text-[var(--color-neutral-gray-9)]">{value}</span>
+        {/* Figma usa 14px/24px acá, no el par 14/18 de --text-body-small */}
+        <span className="font-sans text-[length:var(--text-body-small)] font-normal leading-[24px] text-[var(--color-neutral-gray-9)]">
+          {label}
+        </span>
+        <span className="font-sans text-body-large font-normal text-[var(--color-neutral-gray-9)]">{value}</span>
       </div>
       {onEdit && (
         <button
           type="button"
           onClick={onEdit}
-          className="flex h-[20px] items-center gap-[var(--spacing-8)] font-sans text-[16px] font-semibold leading-[20px] text-[var(--color-action-primary)]"
+          className="flex h-[20px] items-center gap-[var(--spacing-8)] font-sans text-body-medium-semibold font-semibold text-[var(--color-action-primary)]"
         >
           {editLabel}
           <InterfaceEssentialPenEditIcon className="size-[16px]" />

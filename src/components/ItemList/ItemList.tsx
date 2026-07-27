@@ -48,18 +48,18 @@ export function ItemList({
       </span>
       <span className="flex min-w-0 flex-1 flex-col gap-[var(--spacing-1)]">
         <span className="flex w-full items-center justify-between gap-[var(--spacing-4)]">
-          <span className="truncate font-sans text-[16px] leading-[20px] text-[var(--color-neutral-gray-9)]">
+          <span className="truncate font-sans text-body-medium font-normal text-[var(--color-neutral-gray-9)]">
             {title}
           </span>
-          <span className="shrink-0 font-sans text-[16px] leading-[20px] text-[var(--color-neutral-gray-9)]">
+          <span className="shrink-0 font-sans text-body-medium font-normal text-[var(--color-neutral-gray-9)]">
             {amount}
           </span>
         </span>
         <span className="flex w-full items-center justify-between gap-[var(--spacing-4)]">
-          <span className={["truncate font-sans text-[14px] leading-[18px]", styles.statusText].join(" ")}>
+          <span className={["truncate font-sans text-body-small font-normal", styles.statusText].join(" ")}>
             {statusLabel}
           </span>
-          <span className="shrink-0 font-sans text-[14px] leading-[18px] text-[var(--color-neutral-gray-9)]">
+          <span className="shrink-0 font-sans text-body-small font-normal text-[var(--color-neutral-gray-9)]">
             {date}
           </span>
         </span>

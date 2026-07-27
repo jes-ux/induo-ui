@@ -40,19 +40,19 @@ export function ProductCard({
       <span className="flex h-[183px] w-full flex-col gap-[var(--spacing-12)] rounded-b-[var(--radius-large)] border-x border-b border-[var(--color-neutral-gray-4)] bg-[var(--color-neutral-white)] p-[var(--spacing-12)]">
         <span className="flex w-full flex-col items-start gap-[var(--spacing-4)]">
           {badge}
-          <span className="font-sans text-[16px] font-semibold leading-[20px] text-[var(--color-neutral-gray-9)]">
+          <span className="font-sans text-body-medium-semibold font-semibold text-[var(--color-neutral-gray-9)]">
             {brand}
           </span>
-          <span className="line-clamp-2 w-full font-sans text-[14px] leading-[18px] text-[var(--color-neutral-gray-9)]">
+          <span className="line-clamp-2 w-full font-sans text-body-small font-normal text-[var(--color-neutral-gray-9)]">
             {title}
           </span>
         </span>
         <span className="flex w-full flex-col items-start gap-[var(--spacing-4)]">
-          <span className="font-sans text-[18px] font-semibold leading-[24px] text-[var(--color-neutral-gray-9)]">
+          <span className="font-sans text-body-large-semibold font-semibold text-[var(--color-neutral-gray-9)]">
             {price}
           </span>
           {shipping && (
-            <span className="font-sans text-[14px] font-semibold leading-[18px] text-[var(--color-information-primary)]">
+            <span className="font-sans text-body-small-semibold font-semibold text-[var(--color-information-primary)]">
               {shipping}
             </span>
           )}

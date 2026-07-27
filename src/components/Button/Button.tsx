@@ -18,19 +18,19 @@ const base =
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "h-[var(--height-52)] px-[var(--spacing-20)] text-[18px] leading-[24px] " +
+    "h-[var(--height-52)] px-[var(--spacing-20)] text-body-large-semibold " +
     "bg-[var(--color-action-primary)] text-[var(--color-neutral-white)] " +
     "hover:bg-[var(--color-action-primary-hover)] active:bg-[var(--color-action-primary-pressed)] " +
     "disabled:bg-[var(--color-neutral-gray-1)] disabled:text-[var(--color-neutral-gray-5)] " +
     "disabled:border disabled:border-[var(--color-neutral-gray-4)]",
   secondary:
-    "h-[var(--height-52)] px-[var(--spacing-20)] text-[18px] leading-[24px] " +
+    "h-[var(--height-52)] px-[var(--spacing-20)] text-body-large-semibold " +
     "bg-[var(--color-action-secondary)] text-[var(--color-action-primary)] " +
     "hover:bg-[var(--color-action-secondary-hover)] active:bg-[var(--color-action-secondary-pressed)] " +
     "disabled:bg-[var(--color-neutral-gray-1)] disabled:text-[var(--color-neutral-gray-5)] " +
     "disabled:border disabled:border-[var(--color-neutral-gray-4)]",
   outlined:
-    "h-[28px] px-[var(--spacing-8)] gap-[var(--spacing-4)] rounded-[var(--radius-small)] text-[16px] leading-[20px] border " +
+    "h-[28px] px-[var(--spacing-8)] gap-[var(--spacing-4)] rounded-[var(--radius-small)] text-body-medium-semibold border " +
     "border-[var(--color-action-primary)] text-[var(--color-action-primary)] bg-transparent " +
     "hover:bg-[var(--color-action-secondary-hover)] active:bg-[var(--color-action-secondary-pressed)] " +
     "disabled:bg-[var(--color-neutral-gray-1)] disabled:text-[var(--color-neutral-gray-5)] disabled:border-[var(--color-neutral-gray-4)]",
@@ -42,8 +42,8 @@ const variantStyles: Record<ButtonVariant, string> = {
 
 // El variant "text" tiene dos tamaños reales en el kit: 18px ("Big Text") y 16px ("Regular Text").
 const textSizeStyles: Record<ButtonSize, string> = {
-  medium: "text-[18px] leading-[24px]",
-  small: "text-[16px] leading-[20px]",
+  medium: "text-body-large-semibold",
+  small: "text-body-medium-semibold",
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(

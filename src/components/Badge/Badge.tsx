@@ -18,8 +18,8 @@ const variantStyles: Record<BadgeVariant, string> = {
 };
 
 const sizeStyles: Record<BadgeSize, string> = {
-  regular: "px-[var(--spacing-8)] py-[var(--spacing-4)] text-[16px] leading-[20px]",
-  small: "px-[var(--spacing-4)] py-[var(--spacing-1)] text-[14px] leading-[18px]",
+  regular: "px-[var(--spacing-8)] py-[var(--spacing-4)] text-body-medium",
+  small: "px-[var(--spacing-4)] py-[var(--spacing-1)] text-body-small",
 };
 
 export function Badge({ variant = "information", size = "regular", className, children, ...props }: BadgeProps) {

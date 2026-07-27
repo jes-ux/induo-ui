@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
-import { ItemcardTrailingChevronIcon } from "../icons/ItemcardTrailingChevronIcon";
+import { ChevronRightThinIcon } from "../icons/ChevronRightThinIcon";
 
 export interface ItemCardProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon: ReactNode;
@@ -30,13 +30,13 @@ export function ItemCard({ icon, label, selected = false, trailing, className, .
         <span className="flex size-[32px] shrink-0 items-center justify-center rounded-[var(--radius-small)] text-[var(--color-action-primary)] [&>svg]:size-[21px]">
           {icon}
         </span>
-        <span className="truncate font-sans text-[18px] leading-[24px] text-[var(--color-neutral-gray-9)]">
+        <span className="truncate font-sans text-body-large font-normal text-[var(--color-neutral-gray-9)]">
           {label}
         </span>
       </span>
       {trailing ?? (
         <span className="flex size-[32px] shrink-0 items-center justify-center text-[var(--color-action-primary)]">
-          <ItemcardTrailingChevronIcon className="h-[12px] w-[6.5px]" />
+          <ChevronRightThinIcon className="h-[12px] w-[6.5px]" />
         </span>
       )}
     </button>
