@@ -12,11 +12,11 @@ export interface ItemListProps extends HTMLAttributes<HTMLDivElement> {
   date: string;
 }
 
-const variantStyles: Record<ItemListVariant, { iconBg: string; statusText: string }> = {
-  information: { iconBg: "bg-[var(--color-information-secondary)]", statusText: "text-[var(--color-information-primary)]" },
-  success: { iconBg: "bg-[var(--color-success-secondary)]", statusText: "text-[var(--color-success-primary)]" },
-  warning: { iconBg: "bg-[var(--color-warning-secondary)]", statusText: "text-[var(--color-warning-primary)]" },
-  error: { iconBg: "bg-[var(--color-error-secondary)]", statusText: "text-[var(--color-error-primary)]" },
+const variantStyles: Record<ItemListVariant, { iconBg: string; primaryText: string }> = {
+  information: { iconBg: "bg-[var(--color-information-secondary)]", primaryText: "text-[var(--color-information-primary)]" },
+  success: { iconBg: "bg-[var(--color-success-secondary)]", primaryText: "text-[var(--color-success-primary)]" },
+  warning: { iconBg: "bg-[var(--color-warning-secondary)]", primaryText: "text-[var(--color-warning-primary)]" },
+  error: { iconBg: "bg-[var(--color-error-secondary)]", primaryText: "text-[var(--color-error-primary)]" },
 };
 
 export function ItemList({
@@ -40,8 +40,9 @@ export function ItemList({
     >
       <span
         className={[
-          "flex size-[32px] shrink-0 items-center justify-center rounded-[var(--radius-small)] text-[var(--color-neutral-gray-9)] [&>svg]:size-[20px]",
+          "flex size-[32px] shrink-0 items-center justify-center rounded-[var(--radius-small)] [&>svg]:size-[20px]",
           styles.iconBg,
+          styles.primaryText,
         ].join(" ")}
       >
         {icon}
@@ -56,7 +57,7 @@ export function ItemList({
           </span>
         </span>
         <span className="flex w-full items-center justify-between gap-[var(--spacing-4)]">
-          <span className={["truncate font-sans text-body-small font-normal", styles.statusText].join(" ")}>
+          <span className={["truncate font-sans text-body-small font-normal", styles.primaryText].join(" ")}>
             {statusLabel}
           </span>
           <span className="shrink-0 font-sans text-body-small font-normal text-[var(--color-neutral-gray-9)]">
