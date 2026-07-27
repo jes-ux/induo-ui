@@ -1,4 +1,4 @@
-import { forwardRef, useId, useState, type InputHTMLAttributes } from "react";
+import { forwardRef, useId, useRef, useState, type FocusEvent, type InputHTMLAttributes } from "react";
 import { InterfaceEssentialEyeShowIcon } from "../icons/InterfaceEssentialEyeShowIcon";
 import { InterfaceEssentialEyeHideIcon } from "../icons/InterfaceEssentialEyeHideIcon";
 import { InterfaceEssentialCheckThinIcon } from "../icons/InterfaceEssentialCheckThinIcon";
@@ -43,17 +43,31 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(fu
   ref,
 ) {
   const [visible, setVisible] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const generatedId = useId();
   const inputId = id ?? generatedId;
   const hasError = Boolean(errorMessage);
   const hasValue = Boolean(props.value);
 
+  const handleWrapperBlur = (event: FocusEvent<HTMLDivElement>) => {
+    // El foco puede moverse del input al botón de mostrar/ocultar (o viceversa) sin que el
+    // usuario "termine de editar" — el tracking va en el wrapper entero (bubbling), no solo en
+    // el input, porque el botón también puede quedarse con el foco después de tocarlo.
+    if (!wrapperRef.current?.contains(event.relatedTarget as Node)) {
+      setIsFocused(false);
+    }
+  };
+
   return (
     <div className="flex w-full flex-col gap-[var(--spacing-8)]">
       <div className="flex w-full flex-col gap-[var(--spacing-4)]">
         <div
+          ref={wrapperRef}
+          onFocus={() => setIsFocused(true)}
+          onBlur={handleWrapperBlur}
           className={[
-            "flex h-[52px] w-full items-center justify-between gap-[var(--spacing-16)]",
+            "flex h-[var(--height-56)] w-full items-center justify-between gap-[var(--spacing-16)]",
             "rounded-[var(--radius-medium)] bg-[var(--color-neutral-white)] px-[var(--spacing-16)]",
             hasError
               ? "border-2 border-[var(--color-error-primary)]"
@@ -71,7 +85,8 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(fu
             id={inputId}
             type={visible ? "text" : "password"}
             className={[
-              "min-w-0 flex-1 bg-transparent font-sans text-body-small font-normal outline-none",
+              "min-w-0 flex-1 bg-transparent font-sans text-body-large font-normal outline-none",
+              "placeholder:text-[var(--color-neutral-gray-5)]",
               hasError ? "text-[var(--color-error-primary)]" : "text-[var(--color-neutral-black)]",
               className,
             ]
@@ -90,7 +105,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(fu
             className="flex size-[24px] shrink-0 items-center justify-center text-[var(--color-neutral-gray-9)]"
           >
             {visible ? (
-              <InterfaceEssentialEyeShowIcon className="h-[19px] w-[24px]" />
+              <InterfaceEssentialEyeShowIcon className="size-[24px]" />
             ) : (
               <InterfaceEssentialEyeHideIcon className="size-[24px]" />
             )}
@@ -107,7 +122,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(fu
         )}
       </div>
 
-      {requirements && requirements.length > 0 && (
+      {isFocused && !hasError && requirements && requirements.length > 0 && (
         <div className="flex w-full flex-col gap-[var(--spacing-12)] rounded-[var(--radius-medium)] bg-[var(--color-neutral-gray-1)] p-[var(--spacing-16)]">
           <div className="flex w-full flex-col gap-[var(--spacing-12)]">
             {/* Figma usa 16px/18px acá, no el par 16/20 de --text-body-medium-semibold */}
