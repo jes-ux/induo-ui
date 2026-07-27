@@ -42,6 +42,12 @@ function toProductCardProps(product: Product) {
     brand,
     title: titleWords.join(" "),
     price: priceFormatter.format(product.price),
+    badge: product.isNew ? (
+      <Badge variant="information" size="small">
+        Novedad
+      </Badge>
+    ) : undefined,
+    shipping: product.freeShipping ? "Envío Gratis" : undefined,
   };
 }
 
