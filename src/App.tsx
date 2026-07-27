@@ -33,7 +33,12 @@ import { products, type Product } from "./data/products";
 const AireLibreIcon = getCategoryIcon("aire-libre");
 const GastronomiaIcon = getCategoryIcon("gastronomia");
 
-const priceFormatter = new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS" });
+const priceFormatter = new Intl.NumberFormat("es-AR", {
+  style: "currency",
+  currency: "ARS",
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 0,
+});
 
 function toProductCardProps(product: Product) {
   const [brand, ...titleWords] = product.name.split(" ");
