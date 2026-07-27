@@ -39,7 +39,6 @@ export function ProductCard({
       </span>
       <span className="flex h-[183px] w-full flex-col gap-[var(--spacing-12)] rounded-b-[var(--radius-large)] border-x border-b border-[var(--color-neutral-gray-4)] bg-[var(--color-neutral-white)] p-[var(--spacing-12)]">
         <span className="flex w-full flex-col items-start gap-[var(--spacing-4)]">
-          {badge}
           <span className="font-sans text-body-medium-semibold font-semibold text-[var(--color-neutral-gray-9)]">
             {brand}
           </span>
@@ -48,6 +47,7 @@ export function ProductCard({
           </span>
         </span>
         <span className="flex w-full flex-col items-start gap-[var(--spacing-4)]">
+          {badge}
           <span className="font-sans text-body-large-semibold font-semibold text-[var(--color-neutral-gray-9)]">
             {price}
           </span>
