@@ -59,7 +59,10 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(fu
               ? "border-2 border-[var(--color-error-primary)]"
               : [
                   hasValue ? "border border-[var(--color-neutral-gray-5)]" : "border border-[var(--color-neutral-gray-4)]",
-                  "hover:border-[var(--color-neutral-gray-5)]",
+                  /* not-focus-within: evita que hover y focus-within empaten en especificidad — Tailwind v4 siempre
+                     emite el bloque @media (hover:hover) después de focus-within, así que sin esto el mouse quieto
+                     sobre el input (típico justo después de hacer click para escribir) pisaba el borde violeta con gris */
+                  "not-focus-within:hover:border-[var(--color-neutral-gray-5)]",
                   "focus-within:border-2 focus-within:border-[var(--color-action-primary)]",
                 ].join(" "),
           ].join(" ")}
@@ -75,6 +78,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(fu
               .filter(Boolean)
               .join(" ")}
             aria-invalid={hasError}
+            aria-describedby={hasError ? `${inputId}-error` : undefined}
             ref={ref}
             {...props}
           />
@@ -82,6 +86,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(fu
             type="button"
             onClick={() => setVisible((current) => !current)}
             aria-label={visible ? "Ocultar contraseña" : "Mostrar contraseña"}
+            aria-pressed={visible}
             className="flex size-[24px] shrink-0 items-center justify-center text-[var(--color-neutral-gray-9)]"
           >
             {visible ? (
@@ -92,7 +97,10 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(fu
           </button>
         </div>
         {hasError && (
-          <div className="flex items-center gap-[var(--spacing-8)] font-sans text-body-small font-normal text-[var(--color-error-primary)]">
+          <div
+            id={`${inputId}-error`}
+            className="flex items-center gap-[var(--spacing-8)] font-sans text-body-small font-normal text-[var(--color-error-primary)]"
+          >
             <WarningIcon className="size-[16px]" />
             <span>{errorMessage}</span>
           </div>
