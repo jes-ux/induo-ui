@@ -1,0 +1,18 @@
+import type { SVGProps } from "react";
+
+export function InterfaceEssentialStarFavoriteAddIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 21.3422 21.3422" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <g id="Group">
+        <g id="Path">
+        </g>
+        <g id="Group_2">
+          <path id="Path_2" d="M14.2281 19.5637C11.7728 19.5637 9.7818 17.5727 9.7818 15.1174C9.7818 12.6622 11.7728 10.6711 14.2281 10.6711C16.6842 10.6711 18.6744 12.6622 18.6744 15.1174C18.6744 17.5727 16.6842 19.5637 14.2281 19.5637" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path id="Path_3" d="M12.4496 15.1174H16.0066" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path id="Path_4" d="M14.2281 16.8959V13.3389" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path id="Path_5" d="M10.0877 16.7465L6.63026 18.55C5.84416 18.9599 4.92377 18.2983 5.07406 17.4277L5.84594 12.961L2.57524 9.79787C1.93675 9.18161 2.2889 8.10738 3.16927 7.98111L7.68848 7.32928L9.7071 3.26181C10.0993 2.46948 11.2375 2.46948 11.6315 3.26181L13.6536 7.32928L18.1728 7.97933C19.0532 8.1056 19.4036 9.17983 18.7669 9.79609L16.9217 11.5808" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </g>
+      </g>
+    </svg>
+  );
+}

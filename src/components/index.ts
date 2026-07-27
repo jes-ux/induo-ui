@@ -54,3 +54,6 @@ export type { FilterBadgeProps } from "./FilterBadge/FilterBadge";
 
 export { DataCard } from "./DataCard/DataCard";
 export type { DataCardProps } from "./DataCard/DataCard";
+
+export { ItemList } from "./ItemList/ItemList";
+export type { ItemListProps, ItemListVariant } from "./ItemList/ItemList";

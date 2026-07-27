@@ -19,9 +19,14 @@ import {
   SpecialButton,
   FilterBadge,
   DataCard,
+  ItemList,
 } from "./components";
 import { PinLocationIcon } from "./components/icons/PinLocationIcon";
 import { PackagePinLocationIcon } from "./components/icons/PackagePinLocationIcon";
+import { InterfaceEssentialCheckmarkCircleIcon } from "./components/icons/InterfaceEssentialCheckmarkCircleIcon";
+import { InterfaceEssentialStarFavoriteAddIcon } from "./components/icons/InterfaceEssentialStarFavoriteAddIcon";
+import { InterfaceEssentialDeleteCrossHexagonIcon } from "./components/icons/InterfaceEssentialDeleteCrossHexagonIcon";
+import { InterfaceEssentialBackwardBackIcon } from "./components/icons/InterfaceEssentialBackwardBackIcon";
 import { getCategoryIcon } from "./icons/category-icons";
 
 const AireLibreIcon = getCategoryIcon("aire-libre");
@@ -277,6 +282,43 @@ export default function App() {
 
       <Section title="DataCard">
         <DataCard label="Nombre y apellido" value="Juan Carlos Domínguez" onEdit={() => {}} />
+      </Section>
+
+      <Section title="ItemList">
+        <div className="flex w-full max-w-[400px] flex-col">
+          <ItemList
+            icon={<InterfaceEssentialCheckmarkCircleIcon />}
+            variant="success"
+            title="Termo Stanley"
+            amount="349.287 pts"
+            statusLabel="Consumo aprobado"
+            date="24/07/24"
+          />
+          <ItemList
+            icon={<InterfaceEssentialStarFavoriteAddIcon />}
+            variant="information"
+            title="Pago de servicio"
+            amount="250 pts"
+            statusLabel="Acreditación de puntos"
+            date="24/07/24"
+          />
+          <ItemList
+            icon={<InterfaceEssentialDeleteCrossHexagonIcon />}
+            variant="error"
+            title="Termo Stanley"
+            amount="0 pts"
+            statusLabel="Consumo cancelado"
+            date="24/07/24"
+          />
+          <ItemList
+            icon={<InterfaceEssentialBackwardBackIcon />}
+            variant="information"
+            title="Termo Stanley"
+            amount="349.287 pts"
+            statusLabel="Devolución de puntos"
+            date="24/07/24"
+          />
+        </div>
       </Section>
 
       <Section title="Toast">

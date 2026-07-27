@@ -18,8 +18,8 @@ export function ItemButton({ icon, label, subtitle, trailing, className, ...prop
     <button
       className={[
         "flex h-[var(--height-68)] w-full items-center justify-between gap-[var(--spacing-4)]",
-        "p-[var(--spacing-4)] text-left transition-colors",
-        "hover:bg-[var(--color-neutral-gray-1)]",
+        "bg-[var(--color-neutral-white)] p-[var(--spacing-4)] text-left transition-colors",
+        "hover:bg-[var(--color-neutral-gray-2)] active:bg-[var(--color-neutral-gray-1)]",
         className,
       ]
         .filter(Boolean)
@@ -27,7 +27,7 @@ export function ItemButton({ icon, label, subtitle, trailing, className, ...prop
       {...props}
     >
       <span className="flex items-center gap-[var(--spacing-4)] min-w-0">
-        <span className="flex size-[32px] shrink-0 items-center justify-center rounded-[var(--radius-small)] bg-[var(--color-neutral-gray-1)] text-[var(--color-neutral-gray-9)] [&>svg]:size-[20px]">
+        <span className="flex size-[32px] shrink-0 items-center justify-center rounded-[var(--radius-small)] text-[var(--color-action-primary)] [&>svg]:size-[21px]">
           {icon}
         </span>
         <span className="flex flex-col items-start justify-center gap-[var(--spacing-4)] min-w-0">
@@ -43,7 +43,7 @@ export function ItemButton({ icon, label, subtitle, trailing, className, ...prop
       </span>
       {trailing ??
         (showDefaultTrailing && (
-          <span className="flex size-[32px] shrink-0 items-center justify-center text-[var(--color-neutral-gray-9)]">
+          <span className="flex size-[32px] shrink-0 items-center justify-center text-[var(--color-action-primary)]">
             <ItemcardTrailingChevronIcon className="h-[12px] w-[6.5px]" />
           </span>
         ))}

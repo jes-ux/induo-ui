@@ -1,0 +1,15 @@
+import type { SVGProps } from "react";
+
+export function InterfaceEssentialDeleteCrossHexagonIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 21.3333 21.3333" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <g id="Group">
+        <g id="Path">
+        </g>
+        <path id="Path_2" fillRule="evenodd" clipRule="evenodd" d="M6.59022 18.1458L3.18756 14.7431C2.85422 14.4098 2.66667 13.9573 2.66667 13.4862V7.84711C2.66667 7.376 2.85422 6.92356 3.18756 6.59022L6.59022 3.18756C6.92356 2.85422 7.376 2.66667 7.84711 2.66667H13.4853C13.9564 2.66667 14.4089 2.85422 14.7422 3.18756L18.1449 6.59022C18.4791 6.92356 18.6667 7.376 18.6667 7.84711V13.4853C18.6667 13.9564 18.4791 14.4089 18.1458 14.7422L14.2222 18.6667H7.84711C7.376 18.6667 6.92356 18.4791 6.59022 18.1458V18.1458Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path id="Path_3" d="M8 13.3333L13.3333 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path id="Path_4" d="M13.3333 13.3333L8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </g>
+    </svg>
+  );
+}
