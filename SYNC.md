@@ -61,6 +61,21 @@ dependencia**, el shorthand ya es la forma correcta.
 1. Con lo anterior en mente, **no corras `npm update induo-ui` pensando
    en commitear el lockfile** — no hay lockfile que actualizar, y no se
    debe volver a crear uno committeado.
+1.5. **Antes de instalar o deployar, borrá el `package-lock.json` local
+   si existe** (`rm -f package-lock.json`) y `node_modules/induo-ui`
+   (`rm -rf node_modules/induo-ui`). Aunque no está trackeado en git,
+   si quedó un `package-lock.json` en el filesystem de una corrida
+   anterior de esta sesión (o de cualquier otra), **`npm install` lo
+   respeta igual y pisa la resolución "fresca"** — confirmado en vivo
+   el 2026-07-27: un lockfile local con `resolved` apuntando a un
+   commit viejo hizo que tanto el `npm install` local como el deploy
+   de Vercel (`vercel --prod --force`, que sube el directorio local
+   tal cual, lockfile incluido) sirvieran código de `induo-ui`
+   desactualizado, a pesar de que `git ls-remote` y el tarball de
+   `codeload.github.com` ya mostraban el commit correcto. El síntoma:
+   el deployment nuevo queda "Ready" con el color/cambio viejo. Borrar
+   el lockfile + `node_modules/induo-ui` y recién ahí instalar es lo
+   que fuerza la re-resolución real.
 2. **El paso real es forzar un redeploy en Vercel sin build cache.**
    Vercel restaura el `node_modules` cacheado del deploy anterior en
    cada build; como el texto de `package.json` no cambia (sigue
@@ -72,6 +87,7 @@ dependencia**, el shorthand ya es la forma correcta.
    deploy sin cache).
 3. Desde la carpeta de `induo-app`:
    ```
+   rm -f package-lock.json && rm -rf node_modules/induo-ui
    npx vercel link --yes   # solo la primera vez, o si no está linkeado
    npx vercel --prod --force
    ```
@@ -79,9 +95,16 @@ dependencia**, el shorthand ya es la forma correcta.
    vuelva a instalar todo de cero (ahí sí npm re-resuelve `induo-ui` al
    commit más reciente de `main`). Requiere estar autenticado con
    `npx vercel whoami` — si no lo está, dispara un login por OAuth.
-4. Verificá visualmente (o con `curl`/el ID de deployment en la
-   respuesta del comando) que el sitio en producción cambió antes de
-   dar el paso por terminado.
+4. Verificá con `curl` el CSS servido en producción (no solo un
+   screenshot del browser — puede quedar cacheado), buscando el valor
+   concreto que cambió, ej.:
+   ```
+   CSS=$(curl -s https://induo-app.vercel.app/login | grep -o '/_next/static/css/[a-z0-9]*\.css' | head -1)
+   curl -s "https://induo-app.vercel.app$CSS" | grep -o "<hex nuevo>"
+   ```
+   Si no aparece, no asumas que es solo caché del browser — repetí
+   desde el paso 1.5 (el problema más probable es un lockfile local
+   viejo, no la caché del CDN).
 
 Con esto, los tres despliegues (showcase de induo-ui, Storybook, e
 induo-app) quedan al día.
