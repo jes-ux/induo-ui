@@ -33,7 +33,7 @@ export function Input({ helperText, errorMessage, className, id, ...props }: Inp
             ? "border-2 border-[var(--color-error-primary)] text-[var(--color-error-primary)]"
             : [
                 "border border-[var(--color-neutral-gray-4)]",
-                "hover:border-[var(--color-neutral-gray-5)]",
+                "not-focus:hover:border-[var(--color-neutral-gray-5)]",
                 "focus:border-2 focus:border-[var(--color-action-primary)]",
               ].join(" "),
           className,

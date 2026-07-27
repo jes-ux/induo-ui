@@ -88,7 +88,7 @@ export function VerificationInput({
                 ? "border-2 border-[var(--color-error-primary)] text-[var(--color-error-primary)]"
                 : digit
                   ? "border-2 border-[var(--color-action-primary)] text-[var(--color-neutral-gray-9)]"
-                  : "border border-[var(--color-neutral-gray-4)] text-[var(--color-neutral-gray-9)] hover:border-[var(--color-neutral-gray-5)] focus:border-2 focus:border-[var(--color-action-primary)]",
+                  : "border border-[var(--color-neutral-gray-4)] text-[var(--color-neutral-gray-9)] not-focus:hover:border-[var(--color-neutral-gray-5)] focus:border-2 focus:border-[var(--color-action-primary)]",
             ].join(" ")}
           />
         ))}
