@@ -25,7 +25,7 @@ export function Input({ helperText, errorMessage, className, id, ...props }: Inp
       <input
         id={inputId}
         className={[
-          "h-[58px] w-full rounded-[var(--radius-medium)] bg-[var(--color-neutral-white)]",
+          "h-[var(--height-56)] w-full rounded-[var(--radius-medium)] bg-[var(--color-neutral-white)]",
           "px-[var(--spacing-16)] font-sans text-body-large font-normal",
           "text-[var(--color-neutral-gray-9)] placeholder:text-[var(--color-neutral-gray-5)]",
           "outline-none transition-colors",
