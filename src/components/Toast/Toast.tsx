@@ -1,5 +1,5 @@
 import type { HTMLAttributes, ReactNode } from "react";
-import { InterfaceEssentialWarningIcon } from "../icons/InterfaceEssentialWarningIcon";
+import { InterfaceEssentialWarningCircleIcon } from "../icons/InterfaceEssentialWarningCircleIcon";
 import { ToastSuccessIcon } from "../icons/ToastSuccessIcon";
 
 export type ToastVariant = "default" | "success" | "warning" | "error";
@@ -23,10 +23,10 @@ const variantStyles: Record<ToastVariant, string> = {
 };
 
 const defaultIcons: Record<ToastVariant, ReactNode> = {
-  default: <InterfaceEssentialWarningIcon />,
-  success: <ToastSuccessIcon />,
-  warning: <InterfaceEssentialWarningIcon />,
-  error: <InterfaceEssentialWarningIcon />,
+  default: <InterfaceEssentialWarningCircleIcon className="size-[32px]" />,
+  success: <ToastSuccessIcon className="size-[25px]" />,
+  warning: <InterfaceEssentialWarningCircleIcon className="size-[32px]" />,
+  error: <InterfaceEssentialWarningCircleIcon className="size-[32px]" />,
 };
 
 export function Toast({
@@ -57,7 +57,7 @@ export function Toast({
     >
       <span className="flex min-w-0 items-center gap-[var(--spacing-12)]">
         {showIcon && (
-          <span className="flex size-[32px] shrink-0 items-center justify-center [&>svg]:size-[20px]">{iconNode}</span>
+          <span className="flex size-[32px] shrink-0 items-center justify-center">{iconNode}</span>
         )}
         <span className="min-w-0 font-sans text-body-medium font-normal">{message}</span>
       </span>
