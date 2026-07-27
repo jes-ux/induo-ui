@@ -105,7 +105,11 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(fu
             className="flex size-[24px] shrink-0 items-center justify-center text-[var(--color-neutral-gray-9)]"
           >
             {visible ? (
-              <InterfaceEssentialEyeShowIcon className="size-[24px]" />
+              // Tamaño natural del glyph (viewBox 18.8995x14.9), sin estirar — el componente
+              // Figma real ("Eye, Show, Visible") lo insertea dentro de su slot de 24x24 con
+              // insets porcentuales (18.96% vertical / 10.63% horizontal), que dan exactamente
+              // este tamaño. El botón padre ya lo centra (items-center justify-center). Ver CLAUDE.md.
+              <InterfaceEssentialEyeShowIcon className="h-[14.9px] w-[18.9px]" />
             ) : (
               <InterfaceEssentialEyeHideIcon className="size-[24px]" />
             )}
