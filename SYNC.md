@@ -106,5 +106,27 @@ dependencia**, el shorthand ya es la forma correcta.
    desde el paso 1.5 (el problema más probable es un lockfile local
    viejo, no la caché del CDN).
 
+## Nota — probar cambios de induo-ui localmente en induo-app (`npm run dev`)
+
+Si corrés `npm run dev` en `induo-app` para probar un cambio reciente
+de `induo-ui` y no lo ves reflejado (aunque `node_modules/induo-ui` en
+disco ya esté actualizado) — **es el build cache de Next
+(`.next/cache`)**, no un problema del código ni del browser. Next no
+tiene forma de saber que `induo-ui` cambió porque se consume sin
+versión fija (mismo motivo que el Paso 4: shorthand de GitHub, sin
+lockfile), así que reusa el módulo compilado de una corrida anterior
+del dev server. Confirmado en vivo el 2026-07-27: `node_modules`
+tenía el fix, pero el HTML servido seguía mostrando el markup viejo
+hasta borrar `.next` y reiniciar.
+
+**No hay arreglo de raíz sin versionar `induo-ui` de verdad** (tags,
+semver — ver backlog general del proyecto). Mientras tanto, cada vez
+que se pruebe un cambio de `induo-ui` en local:
+```
+pkill -f "next dev"
+rm -rf .next
+npm run dev
+```
+
 Con esto, los tres despliegues (showcase de induo-ui, Storybook, e
 induo-app) quedan al día.
