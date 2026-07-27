@@ -28,9 +28,22 @@ import { InterfaceEssentialStarFavoriteAddIcon } from "./components/icons/Interf
 import { InterfaceEssentialDeleteCrossHexagonIcon } from "./components/icons/InterfaceEssentialDeleteCrossHexagonIcon";
 import { InterfaceEssentialBackwardBackIcon } from "./components/icons/InterfaceEssentialBackwardBackIcon";
 import { getCategoryIcon } from "./icons/category-icons";
+import { products, type Product } from "./data/products";
 
 const AireLibreIcon = getCategoryIcon("aire-libre");
 const GastronomiaIcon = getCategoryIcon("gastronomia");
+
+const priceFormatter = new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS" });
+
+function toProductCardProps(product: Product) {
+  const [brand, ...titleWords] = product.name.split(" ");
+  return {
+    image: product.image,
+    brand,
+    title: titleWords.join(" "),
+    price: priceFormatter.format(product.price),
+  };
+}
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -126,78 +139,14 @@ export default function App() {
       </Section>
 
       <Section title="ProductCard">
-        <ProductCard
-          image="https://picsum.photos/seed/jbl/320/320"
-          badge={
-            <Badge variant="information" size="small">
-              Novedad
-            </Badge>
-          }
-          brand="JBL"
-          title="Parlante Bluetooth JBL Clip 4 Black/Orange"
-          price="499.500 pts"
-          shipping="Envío Gratis"
-        />
+        <ProductCard {...toProductCardProps(products[0])} />
       </Section>
 
       <Section title="ProductCarousel">
         <ProductCarousel title="Novedades" seeAllLabel="Mostrar todo">
-          <ProductCard
-            image="https://picsum.photos/seed/jbl/320/320"
-            badge={
-              <Badge variant="information" size="small">
-                Novedad
-              </Badge>
-            }
-            brand="JBL"
-            title="Parlante Bluetooth JBL Clip 4 Black/Orange"
-            price="219.500 pts"
-            shipping="Envío Gratis"
-          />
-          <ProductCard
-            image="https://picsum.photos/seed/mate/320/320"
-            brand="Stanley"
-            title="Mate Stanley Acero Inoxidable Termico 236ml Verde"
-            price="140.700 pts"
-            shipping="Envío Gratis"
-          />
-          <ProductCard
-            image="https://picsum.photos/seed/mouse/320/320"
-            brand="Logitech"
-            title="Mouse Inalámbrico Con Emojis Personalizables Logitech"
-            price="190.300 pts"
-          />
-          <ProductCard
-            image="https://picsum.photos/seed/msmouse1/320/320"
-            brand="Microsoft"
-            title="Mouse Microsoft Modern Mobile peach"
-            price="120.500 pts"
-            shipping="Envío Gratis"
-          />
-          <ProductCard
-            image="https://picsum.photos/seed/msmouse2/320/320"
-            brand="Microsoft"
-            title="Mouse Inalambrico Microsoft 1850 Ambidiestro Windows Mac"
-            price="60.700 pts"
-          />
-          <ProductCard
-            image="https://picsum.photos/seed/teclado/320/320"
-            badge={
-              <Badge variant="action" size="small">
-                Oferta
-              </Badge>
-            }
-            brand="Logitech"
-            title="Teclado Inalámbrico K380 Multi-Dispositivo Bluetooth"
-            price="310.900 pts"
-            shipping="Envío Gratis"
-          />
-          <ProductCard
-            image="https://picsum.photos/seed/auriculares/320/320"
-            brand="Sony"
-            title="Auriculares Inalámbricos WH-CH520 Bluetooth"
-            price="175.200 pts"
-          />
+          {products.map((product) => (
+            <ProductCard key={product.id} {...toProductCardProps(product)} />
+          ))}
         </ProductCarousel>
       </Section>
 
