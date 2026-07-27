@@ -1,4 +1,5 @@
 /* Generado desde tokens.json — no editar a mano. Fuente de verdad: libreria 'Design Tokens - Induo' en Figma. */
+/* Tipografia: Open Sans (migrada desde Montserrat el 2026-07-27, ver CLAUDE.md). */
 /* IMPORTANTE: las escalas spacing, width y height usan el valor en px como nombre (Spacing/8 = 8px),
    reemplazando la escala numerica por defecto de Tailwind (que multiplica x4px). p-8 = 8px, no 32px. */
 @theme {
@@ -17,16 +18,16 @@
   --color-brand-primary: #FFD53F;
   --color-brand-secondary: #FFF6D5;
   --color-brand-tertiary: #D3AC20;
-  --color-action-primary: #8E49CA;
-  --color-action-primary-hover: #9660C5;
-  --color-action-primary-pressed: #8244B7;
-  --color-action-secondary: #E7DCF0;
-  --color-action-secondary-hover: #EAE0F4;
-  --color-action-secondary-pressed: #DBCCE7;
+  --color-action-primary: #2E2BEF;
+  --color-action-primary-hover: #3F3CEE;
+  --color-action-primary-pressed: #221FE4;
+  --color-action-secondary: #EAEAFF;
+  --color-action-secondary-hover: #ECECFF;
+  --color-action-secondary-pressed: #E3E3FD;
   --color-information-primary: #249FC0;
-  --color-information-secondary: #D1EDF4;
+  --color-information-secondary: #E4F1F4;
   --color-success-primary: #2B845C;
-  --color-success-secondary: #D3E7DE;
+  --color-success-secondary: #EAF4EF;
   --color-error-primary: #D03A3A;
   --color-error-secondary: #EDD7D7;
   --color-warning-primary: #CF9A2F;
@@ -91,7 +92,7 @@
   --stroke-2: 2px;
   --stroke-3: 3px;
 
-  --font-sans: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Open Sans', ui-sans-serif, system-ui, sans-serif;
   --text-heading-large: 40px;
   --text-heading-large--line-height: 52px;
   --text-heading-medium: 32px;

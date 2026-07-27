@@ -4,10 +4,23 @@ Librería de componentes en código para Induo (Aper), construida a partir del d
 
 ## Origen y fuente de verdad
 
-- El design system vive en Figma: archivo **"UI Kit App Points"**, librería de tokens publicada como **"Design Tokens - Induo"** (67 variables: color, spacing, radius, tamaños, stroke — más 10 text styles en Montserrat).
+- El design system vive en Figma: archivo **"UI Kit App Points"** (el mismo archivo aparece en Figma con el nombre extendido "UI Kit - App Points - Pronto Pago - Core", fileKey `4IY8pjPHgMMxxT23IfMzzg` sin cambios), librería de tokens publicada como **"Design Tokens - Induo"** (67 variables: color, spacing, radius, tamaños, stroke — más 10 text styles). **Ojo:** el archivo tiene una SEGUNDA colección de variables con nombres calcados ("UI Kit Pronto Pago", dentro de la librería "UI Kit - App Points - Pronto Pago - Core") — es de otro scope/producto, **no** es la fuente de tokens de este repo. Confirmado con el usuario (2026-07-27): la fuente sigue siendo "Design Tokens - Induo".
 - `tokens.json` en la raíz del repo es una copia fiel de esa librería, en formato W3C Design Tokens. Si un token cambia, cambia primero en Figma → se regenera `tokens.json` → se regenera `src/tokens.css`. Nunca al revés.
 - `src/tokens.css` es el `@theme` de Tailwind v4, generado a partir de `tokens.json`. **Ojo:** las escalas `--spacing-*`, `--width-*` y `--height-*` usan el valor en píxeles como nombre (`Spacing/8` = `8px`), pisando la escala numérica por defecto de Tailwind (que multiplica x4px). Esto es intencional — `p-8` da `8px`, no los `32px` que daría Tailwind estándar.
-- La tipografía original de Figma era Proxima Nova; se migró todo el sistema a **Montserrat** (Regular 400 y SemiBold 600 son los únicos dos pesos que existen en el sistema). Se carga vía Google Fonts en `index.html`. Pendiente evaluar self-hostear la fuente para no depender de un tercero.
+- La tipografía original de Figma era Proxima Nova → se migró a Montserrat → **se migró de nuevo a Open Sans (confirmado con el usuario, 2026-07-27)**, ver entrada de log más abajo. Regular 400 y SemiBold 600 siguen siendo los únicos dos pesos del sistema. Se carga vía Google Fonts en `index.html`. Pendiente evaluar self-hostear la fuente para no depender de un tercero.
+
+### Log — retheme de color y tipografía (2026-07-27)
+
+El usuario ajustó la librería de tokens en Figma. Se refetcheó contra el nodo `4067:17219` (Password Input, flujo completo) y varios componentes más (`91:1850` Input, `91:1806`/`91:1820` Checkbox, `6233:2910` RadioButton, `4133:1907` ItemButton, `6055:7029` Toast, `6128:249` CategoryCard, `95:1229` ContextualCard, `8073:14921` ProductCard, `8073:4712` DataCard, `4135:1510` ItemList) usando `get_variable_defs`, confirmado con el usuario vía preguntas antes de tocar nada:
+
+- **`--color-action-primary`: `#8E49CA` (púrpura) → `#2E2BEF` (azul/indigo).** Cambio real e intencional en toda la librería, confirmado por el usuario. Afecta Button primary, foco de Input/PasswordInput/VerificationInput, ItemButton/SpecialButton (ícono+chevron), Badge "action", ContextualCard CTA, ProductCarousel "seeAllLabel", Checkbox/RadioButton checked, etc.
+- **`--color-action-primary-pressed`: `#8244B7` → `#221FE4`** (confirmado, nodo `91:1806` Checkbox pressed).
+- **`--color-action-secondary`: `#E7DCF0` → `#EAEAFF`**, **`--color-action-secondary-pressed`: `#DBCCE7` → `#E3E3FD`** (confirmados, nodos `6128:249` CategoryCard y `8073:14921`).
+- **`--color-information-secondary`: `#D1EDF4` → `#E4F1F4`** (confirmado, nodo `6055:7029` Toast).
+- **`--color-success-secondary`: `#D3E7DE` → `#EAF4EF`** (confirmado, nodo `4135:1510` ItemList).
+- **`--color-action-primary-hover`: `#9660C5` → `#3F3CEE`** y **`--color-action-secondary-hover`: `#EAE0F4` → `#ECECFF`** — confirmados en una segunda pasada contra el nodo real del Button (`18:4` canvas "↳Button", variantes `18:203`/`18:225` Property 1=Hover de "Big Primary Out"/"Big Secondary Out"). CategoryCard y SpecialButton no tienen una variante Hover propia en Figma (son symbols de un solo frame) pero comparten las mismas variables de Button, así que este valor aplica igual.
+- **Tipografía: `Montserrat` → `Open Sans`** en los 10 text styles, confirmado por el usuario. **Inconsistencia encontrada en el propio archivo de Figma:** el text style "Body/Small Semibold" resuelve a `Open Sans` en unos nodos (`6128:249` CategoryCard) pero todavía a `Montserrat` en otros (`6055:7029` Toast, `8073:4712` DataCard) — parecen frames que no se resuscribieron al estilo actualizado. Se tomó `Open Sans` como valor correcto en todo el kit (coincide con la confirmación del usuario y con la mayoría de las muestras), pero si en algún componente el texto semibold pequeño se ve con la fuente vieja, es este bug de Figma, no un error de nuestro lado.
+- Verificado: `--color-error-primary`, `--color-warning-primary`, `--color-success-primary`, `--color-information-primary` y toda la escala de grises/neutros **no cambiaron**.
 
 ## Stack
 
