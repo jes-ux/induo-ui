@@ -55,7 +55,14 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(fu
     // usuario "termine de editar" — el tracking va en el wrapper entero (bubbling), no solo en
     // el input, porque el botón también puede quedarse con el foco después de tocarlo.
     if (!wrapperRef.current?.contains(event.relatedTarget as Node)) {
-      setIsFocused(false);
+      // requestAnimationFrame, no directo: si el blur lo dispara un click en un botón debajo del
+      // panel (ej. el submit del form), colapsar el panel EN EL MISMO tick corre ese botón hacia
+      // arriba entre el mousedown y el mouseup del click — el navegador ve que el mouseup cae
+      // sobre otro elemento y el click nunca llega a disparar. Confirmado en vivo con Playwright
+      // (un click con coordenadas reales, no un .click() programático) contra la página de
+      // signup de induo-app: el submit quedaba completamente muerto. Difiriendo el colapso un
+      // frame, el click ya terminó de procesarse contra el layout viejo antes de que se mueva.
+      requestAnimationFrame(() => setIsFocused(false));
     }
   };
 
